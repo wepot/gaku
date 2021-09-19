@@ -1,0 +1,94 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+ブログカード
+==================================== */
+.blogCards{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+    @include m.mq(sm) {
+      flex-direction: column;
+    }
+
+    &_item{
+      display: flex;
+      width: calc(33.3% - 4.7% * 2 / 3);
+      max-width: 330px;
+      height: auto;
+      @include m.responsive(margin-top, 30px, 60px, 768px, 1094px);
+      margin-right: 4.7%;
+        &:nth-child(-n + 3) {
+          margin-top: 0;
+        }
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+
+        @include m.mq(md) {
+          width: calc(50% - 8.6% * 1 / 2);
+          margin-right: 8.6%;
+            &:nth-child(n + 3) {
+              margin-top: 30px;
+            }
+            &:nth-child(3n) {
+              margin-right: 8.6%;
+            }
+            &:nth-child(2n) {
+              margin-right: 0;
+            }
+        }
+
+        @include m.mq(sm) {
+          width: 100%;
+            &:nth-child(n + 2) {
+              margin-top: 30px;
+            }
+            &:nth-child(3n) {
+              margin-right: 0;
+            }
+        }
+    }
+}
+
+.blogCard{
+  display: flex;
+  flex-direction: column;
+  
+  &_img{
+    position: relative;
+    width: 100%;
+    max-width: 330px;
+    max-height: 186px;
+
+    img{
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+  &_body{
+    flex-grow: 1;
+    position: relative;
+    padding: 24px 15px;
+    border-radius: 0 0 10px 10px;
+    background-color: #f8f8f8;
+    color: #707070;
+    @include m.responsive(font-size, .9rem, 1rem, 48rem, 68.375rem);
+      @include m.mq(md) {
+        padding: 20px;
+        font-size: s.rem(14px);
+      }
+  }
+
+  &_date{
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+
+  &_text{
+    font-weight: 500;
+  }
+}

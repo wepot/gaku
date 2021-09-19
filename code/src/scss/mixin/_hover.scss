@@ -1,0 +1,29 @@
+// =============リンク設定(カラー／hoverアクション)=============
+// 第1引数：【通常時】の背景色を指定
+// 第2引数：【通常時】の文字色を指定
+// 第3引数：【hover時】の背景色を指定
+// 第4引数：【hover時】の文字色を指定 
+// (例)@include m.link-color(red, #333, aqua, #fff);
+// =============================================================
+@mixin linkColor($normal-bg, $normal, $hover-bg, $hover) {
+  background-color: $normal-bg;
+  color: $normal;
+
+    &:hover {
+      background-color: $hover-bg;
+      color: $hover;
+      cursor: pointer;
+      transition: background-color .3s ease-out;
+    }
+}
+
+// =============文字色のみ(背景色指定なし)=============
+@mixin font-linkColor($normal, $hover) {
+  color: $normal;
+
+    &:hover {
+      color: $hover;
+      cursor: pointer;
+      transition: color .3s ease-out;
+    }
+}

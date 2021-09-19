@@ -1,0 +1,125 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+記事詳細ページ
+==================================== */
+.singlePage{
+  width: 100%;
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  &_inner{
+    display: flex;
+    flex-wrap: nowrap;
+    @include m.responsive(margin-top, 60px, 100px, 768px, 1094px);
+    @include m.responsive(margin-bottom, 40px, 100px, 768px, 1094px);
+  }
+
+  &_wrap{
+    width: calc(100% - 260px);
+    max-width: 805px;
+
+      @include m.mq(md) {
+        width: 100%;
+      }
+  }
+}
+
+.blog{
+  padding: 30px 12.3% 40px;
+  border: 3px solid s.$brown;
+  background-color: s.$white;
+  color: s.$red;
+    @include m.mq(md) {
+      padding: 40px 20px 50px;
+    }
+
+  &_header{
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto 30px;
+    padding-bottom: 30px;
+    background: url(../img/icon/arrow-blog.png) bottom center/100% no-repeat;
+      @include m.mq(md) {
+        padding-bottom: 20px;
+      }
+  }
+
+  h1{
+    @include m.responsive(font-size, 1rem, 1.5rem, 48rem, 68.375rem);
+    font-weight: 700;
+    text-align: center;
+  }
+
+  p{
+    margin-bottom: 40px;
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    font-weight: 500;
+    line-height: 2;
+  }
+
+  figure{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    max-height: 337px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    @include m.responsive(margin-top, 30px, 50px, 768px, 1094px);
+    @include m.responsive(margin-bottom, 40px, 60px, 768px, 1094px);
+  }
+
+  &-address02_link:hover{
+    text-decoration: underline;
+  }
+
+// カテゴリー＆投稿日時
+  &-meta{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+      @include m.mq(md) {
+        flex-direction: column;
+      }
+
+    p{
+      margin-bottom: 0;
+    }
+
+    &_tag{
+      margin-right: auto;
+    }
+  }
+
+// ページャー
+  &_pager{
+    margin-top: 30px;
+    color: s.$brown;
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    font-weight: 700;
+  }
+}
+
+// コンサート情報投稿
+.liveDetail{
+  margin: 30px 0 36px;
+
+  p.liveDetail_date{
+    margin-bottom: 10px;
+  }
+  p.liveDetail_starting{
+    margin-bottom: 40px;
+  }
+}
+
+// 記事ボックスアイコン
+.blogBox {
+  background: url(../img/icon/box-tl.png) top left/54px 54px no-repeat,
+              url(../img/icon/box-tr.png) top right/54px 54px no-repeat,
+              url(../img/icon/box-bl.png) bottom left/54px 54px no-repeat,
+              url(../img/icon/box-br.png) bottom right/54px 54px no-repeat;
+  background-color: s.$white;
+}

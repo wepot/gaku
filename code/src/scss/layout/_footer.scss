@@ -1,0 +1,90 @@
+// =============使用ファイル=============
+@use "../setting" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+フッター (共通)
+=================================== */
+.footer{
+  width: 100%;
+  background-color: s.$black;
+
+  &_inner{
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}//footer
+
+.fnav{
+  padding: 30px 0;
+
+  &-top{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  &_item{
+    padding: 0 17px;
+    @include m.responsive(font-size, .9rem, 1rem, 48rem, 68.375rem);
+    font-weight: 500;
+    letter-spacing: .05em;
+      a:hover{
+        opacity: .8;
+      }
+  }
+
+  &-inquiry_btn{
+    margin: 30px auto;
+  }
+
+  &-bottom{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-logo{
+    width: 175px;
+    height: 53px;
+  }
+
+  &-address{
+    margin-right: 10px;
+    margin-left: 30px;
+    font-size: s.rem(14px);
+    letter-spacing: .08em;
+  }
+
+  &-sns{
+    width: 40px;
+    height: 40px;
+    margin-left: 20px;
+      a:hover{
+        opacity: .8;
+      }
+      img{
+        width: 100%;
+      }
+      @include m.mq(md) {
+        margin: 0 10px ;
+      }
+  }
+
+  .sp-none{
+    @include m.mq(md) {
+      display: none
+    }
+  }
+}//fnav
+
+
+.copyright{
+  @include m.red-full;
+  padding: 10px;
+  color: s.$brown;
+  font-size: s.rem(14px);
+  text-align: center;
+}

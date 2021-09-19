@@ -1,0 +1,39 @@
+<%- include('../../template/_head', { page: jsonData['detail'] }); %>
+  <%- include('../../template/_header' ); %>
+    <main class="main-contents">
+      <section class="singlePage">
+        <header class="section_heading">
+          <h2 class="section_title"><img src="/img/title/live.svg" width="257" height="101" alt="コンサート情報"></h2>
+        </header><!-- /.section_headding -->
+        <div class="singlePage_inner">
+          <div class="singlePage_wrap">
+            <article class="blog blogBox">
+              <header class="blog_header">
+                <h1>コンサートタイトルが入りますサンプルテキストサンプルテキスト</h1>
+              </header><!-- /.blog_header -->
+              <figure>
+                <img src="/img/blog/single-img01.jpg" width="600" height="337" alt="">
+              </figure>
+              <div class="liveDetail">
+                <p class="liveDetail_date">日時：YYYY年MM月DD日</p>
+                <p class="liveDetail_starting">開演時間：15：00～16：30</p>
+                <p class="liveDetail_text">テキスト仮です<br>※予約後10日以内に、予約金(利用料金の半額)をお支払い願います。<br>※残金は当日精算となります。<br>※お申込者都合によるキャンセルの場合、予約金はご返金できません。</p>
+              </div><!-- /.liveDetail -->
+
+              <div class="blog-meta">
+                <p class="blog-meta_tag">テーマ：イベント記録</p>
+                <p class="blog-meta_date"><time datetime="">投稿日時：MMMM.YY.DD</time></p>
+              </div>
+            </article><!-- /.blog -->
+            <div class="blog_pager">
+              <p><a href="前の記事のリンク" rel="prev">前の記事</a></p>
+              <p><a href="次の記事のリンク" rel="next">次の記事</a></p>
+            </div><!-- /.blog_pager -->
+          </div><!-- /.singlePage_wrap -->
+          <%- include( '../../template/_sideMenu' ) %>
+        </div><!-- /.singlePage_inner -->
+      </section><!-- /.singlePage -->
+      <%- include('../../template/_contactBox' ); %>
+    </main>
+
+    <%- include( '../../template/_footer' ) %>

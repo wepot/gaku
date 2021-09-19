@@ -1,0 +1,53 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+
+/*! ===================================
+サイト共通項目 
+==================================== */
+html{
+  height: -webkit-fill-available;
+}
+body {
+	position: relative;
+	min-height: 100vh;
+	min-height: -webkit-fill-available;
+	background-color: #500808;
+	color: s.$white;
+	font-family: s.$base_font;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.container {
+	overflow: hidden;
+}
+
+// 改行調整
+.br-pc01 {
+	display: block;
+		@include m.mq(md) {
+			display: none;
+		}
+}
+.br-pc02 {
+	display: block;
+		@include m.mq(sm) {
+			display: none;
+		}
+}
+
+.br-sp01 {
+	display: none;
+		@include m.mq(md) {
+			display: block;
+		}
+}
+
+.br-sp02 {
+	display: none;
+		@include m.mq(sm) {
+			display: block;
+		}
+}

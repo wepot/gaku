@@ -1,0 +1,42 @@
+/*! ===================================
+リセット
+=================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, p, div, span, a, img, table, tr, th, td, figure, figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+header, footer, nav, section, article, aside, figure, figcaption, time {
+  display: block;
+}
+
+li {
+  list-style: none;
+  list-style-position: inside;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  vertical-align: bottom;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}

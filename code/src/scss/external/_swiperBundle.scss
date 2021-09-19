@@ -1,0 +1,96 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+swiper
+==================================== */
+.swiper-wrapper{
+  padding: 20px 0 40px;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets {
+  bottom: 0;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 8px;
+}
+
+/*! ====== topページ ====== */
+.topSwiper{
+  width: 100%;
+  max-width: 1134px;
+  margin: {
+    top: 0;
+    right: auto;
+    left: auto;
+  }
+  @include m.responsive(margin-bottom, 30px, 60px, 768px, 1094px);
+  padding: 0 20px;
+
+    @include m.mq(md) {
+      padding: 0;
+    }
+
+
+  &-slide{
+    width: 100%;
+    max-width: 1094px;
+    height: auto;
+    max-height: 546px;
+  }
+}
+
+.topSwiper-pagination .swiper-pagination-bullet {
+  width: 17px;
+  height: 17px;
+  border: 3px solid s.$white;
+  border-radius: 5px;
+  background: s.$red;
+  opacity: 1;
+
+  &-active{
+    background: s.$white;
+  }
+
+    @include m.mq(md) {
+      width: 14px;
+      height: 14px;
+    }
+}
+
+/*! ====== aboutページ ====== */
+.aboutSwiper{
+  width: 100%;
+  max-width: 1048px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+  
+  &-slide{
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    max-height: 180px;
+      img{
+        border-radius: 10px;
+      }
+    @include m.mq(sm) {
+      max-width: initial;
+      max-height: initial;
+      padding: 0 7px;
+    }
+  }
+}
+
+.aboutSwiper-pagination .swiper-pagination-bullet {
+  width: 13px;
+  height: 13px;
+  border: 2px solid s.$brown;
+  background: s.$red;
+  opacity: 1;
+
+  &-active{
+    background: s.$brown;
+  }
+}

@@ -1,0 +1,23 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+見出し
+==================================== */
+.section_heading{
+  width: 100%;
+  max-width: 299px;
+  @include m.responsive(height, 87px, 101px, 768px, 1094px);
+  margin: 0 auto;
+}
+
+.section_title{
+  position: relative;
+  width: inherit;
+  height: inherit;
+    img{
+      width: inherit;
+      height: inherit;
+    }
+}

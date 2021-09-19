@@ -1,0 +1,332 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+ご予約・お問い合わせ
+==================================== */
+.sec-inquiry01{
+  margin: 0 auto 63px;
+  padding: 0 20px;
+    @include m.mq(md) {
+      margin-bottom: 50px;
+    }
+
+  &_text{
+    margin-top: 50px;
+    margin-bottom: 40px;
+    @include m.responsive(margin-top, 30px, 50px, 768px, 1094px);
+    @include m.responsive(margin-bottom, 25px, 40px, 768px, 1094px);
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    text-align: center;
+  }
+
+  &_tel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 298px;
+    height: 115px;
+    @include m.responsive(width, 259px, 298px, 768px, 1094px);
+    @include m.responsive(height, 102px, 115px, 768px, 1094px);
+    margin: 0 auto;
+    background: url(../img/icon/box.png) center/100% no-repeat;
+    font-size: s.rem(14px);
+    font-weight: 500;
+
+      span{
+        font-size: s.rem(24px);
+        font-weight: 700;
+        line-height: 1.8;
+      }
+  }
+}
+
+
+// お申し込みについて
+.sec-inquiry02{
+  margin-bottom: 80px;
+  padding: 0 20px;
+    @include m.mq(md) {
+      margin-bottom: 50px;
+    }
+
+  &_wrap{
+    max-width: 630px;
+    margin: 60px auto 90px;
+      @include m.mq(md) {
+        max-width: 580px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+      }
+  }
+
+  &_list{
+    margin-bottom: 20px;
+
+    > li{
+      position: relative;
+      margin-top: 10px;
+      padding-left: 1.1em;
+      @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+      line-height: 1.8;
+        &::before{
+          position: absolute;
+          content: "・";
+          left: 0;
+          font-size: 1em;
+        }
+    }
+  }
+
+  &_caption{
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    text-align: center;
+      @include m.mq(md) {
+        text-align: left;
+      }
+  }
+}
+
+// /*-------- フォーム --------*/
+.inquiryForm{
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.input-box {
+  margin-bottom: 50px;
+    @include m.mq(md) {
+      margin-bottom: 30px;
+    }
+
+  &_caption{
+    margin-top: 15px;
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    font-weight: 500;
+      @include m.mq(sm) {
+        text-align: center;
+      }
+  }
+}
+
+// 項目名
+.label-area {
+  display: inline-block;
+  margin-bottom: 15px;
+  @include m.responsive(font-size, .875rem, 1.25rem, 48rem, 68.375rem);
+  font-weight: 700;
+  letter-spacing: .05em;
+    @include m.mq(md) {
+      margin-bottom: 8px;
+    }
+    
+    span {
+      display: inline-block;
+      margin-left: 20px;
+      padding: .25em .5em;
+      background-color: s.$brown;
+      color: s.$red;
+      @include m.responsive(font-size, .875rem, 1.25rem, 48rem, 68.375rem);
+      font-weight: 700;
+      line-height: 1;
+        @include m.mq(md) {
+          margin-left: 10px;
+        }
+    }
+}
+
+// 入力欄
+.input-item {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  display: block;
+  width: 100%;
+  padding: .7em .5em;
+  border: 2px solid s.$brown;
+  font-size: 20px;
+
+  &:focus:not(:focus-visible) {
+    outline: 0;
+  }
+
+    @include m.mq(md) {
+      font-size: 16px;
+    }
+
+}
+
+.message {
+  height: 300px;
+  padding: .7em;
+  resize: none;
+  overflow-y: scroll;
+
+  &::placeholder {
+    font-size: 20px;
+      @include m.mq(md) {
+        font-size: 16px;
+      }
+  }
+
+  &::-webkit-scrollbar {
+    width: 13px;
+      @include m.mq(md) {
+        width: 8px;
+      }
+  }
+  &::-webkit-scrollbar-track {
+    background: s.$red;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: s.$brown;
+  }
+}
+
+/*-------- ラジオボタン --------*/
+.radio_list{
+  display: flex;
+  @include m.mq(sm) {
+    flex-direction: column;
+    max-width: 170px;
+    margin: 0 auto;
+  }
+}
+
+.radio_item{
+  margin-right: 40px;
+    &:last-child{
+      margin-right: 0;
+    }
+    @include m.mq(sm) {
+      margin-top: 20px;
+      margin-right: 0;
+    }
+}
+
+.radio-area {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio-area_input {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.radio-area_icon {
+  position: relative;
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 1px;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid s.$brown;
+    border-radius: 50%;
+    background-color: s.$red;
+    transition: background-color .3s;
+
+    .radio-area_input:checked + & {
+      border: 2px solid s.$white;
+      pointer-events: none;
+    }
+  }
+
+  &::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .3s;
+
+    .radio-area_input:checked + & {
+      background-color: s.$brown;
+      opacity: 1;
+    }
+  }
+}
+
+.radio-area_text {
+  position: relative;
+  display: inline-block;
+  color: s.$brown;
+  @include m.responsive(font-size, 1rem, 1.25rem, 48rem, 68.375rem);
+  font-weight: 700;
+  letter-spacing: .01em;
+  transition: color .3s;
+  
+  @mixin isActive {
+    color: s.$white;
+  }
+  
+  .radio-area_input:checked ~ & {
+    @include isActive;
+  }
+  
+  .radio-area_input.focus-visible ~ & {
+    @include isActive;
+  }
+
+  @media(hover) {
+    &:hover {
+      @include isActive;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    bottom: -2px;
+    left: 0;
+    transform: scale3d(0, 1, 1);
+    transform-origin: right;
+    width: 100%;
+    height: 2px;
+    background-color: s.$white;
+    transition: transform .3s;
+    
+    @mixin isActive {
+      transform: scale3d(1, 1, 1);
+      transform-origin: left;
+    }
+
+    
+    @media(hover) {
+      .radio-area:hover & {
+        @include isActive;
+      }
+    }
+  }
+
+  .radio-area_icon + & {
+    margin-left: .5em;
+  }
+}

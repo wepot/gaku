@@ -1,0 +1,28 @@
+// =============ブレイクポイントの設定=============
+$breakpoints: (
+  'xs': 'screen and (max-width: 350px)',
+  'sm': 'screen and (max-width: 575px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 991px)',
+  'xl': 'screen and (max-width: 1199px)',
+  'xxl': 'screen and (max-width: 1400px)',
+) !default;
+
+
+// =============z-index=============
+:root {
+  --z-index-header: 100;
+  --z-index-modal: 200;
+}
+
+
+// =============使用カラー=============
+$black: #191919;
+$white: #fff;
+$red: #500808;
+$brown: #aa855b;
+
+
+// =============使用フォント=============
+$base_font: 'Noto Sans JP', sans-serif;
+$title_font: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Helvetica Neue", Arial, Meiryo, sans-serif;

@@ -1,0 +1,72 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ====== ボタン共通 ====== */
+.cta_btn01{
+  width: 150px;
+}
+
+.cta_btn02{
+  width: 180px;
+}
+
+/*! ====== ボタン（赤） ====== */
+.button01{
+  display: inline-block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid s.$brown;
+  background-color: s.$red;
+  color: s.$brown;
+  @include m.responsive(font-size, .9rem, 1rem, 48rem, 68.375rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .05em;
+  transition: background-color .3s ease-out, color .3s ease-out;
+
+    &:hover{
+      background-color: s.$brown;
+      color: s.$red;
+    }
+}
+
+/*! ====== ボタン（黒白） ====== */
+.button02{
+  display: inline-block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid s.$white;
+  background-color: s.$black;
+  color: s.$white;
+  @include m.responsive(font-size, .9rem, 1rem, 48rem, 68.375rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .05em;
+  transition: background-color .3s ease-out, color .3s ease-out;
+
+    &:hover{
+      background-color: s.$white;
+      color: s.$black;
+    }
+}
+
+/*! ====== ボタン（黒茶） ====== */
+.button03{
+  display: inline-block;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #a48661;
+  background-color: s.$black;
+  color: s.$brown;
+  @include m.responsive(font-size, .9rem, 1rem, 48rem, 68.375rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .05em;
+  transition: background-color .3s ease-out, color .3s ease-out;
+
+    &:hover{
+      background-color: s.$brown;
+      color: s.$black;
+    }
+}

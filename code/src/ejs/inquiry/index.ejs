@@ -1,0 +1,95 @@
+<%- include('../template/_head', { page: jsonData['inquiry'] }); %>
+<%- include('../template/_header' ); %>
+  <main class="main-contents">
+    <section id="inquiry" class="sec-inquiry01">
+      <header class="section_heading">
+        <h1 class="section_title"><img src="/img/title/inquiry01.svg" width="299" height="101" alt="ご予約・お問い合わせ"></h1>
+      </header><!-- /.section_headding -->
+      <p class="sec-inquiry01_text">当店へのご予約はお電話にて受け付けております。<br class="br-pc01">また、メールフォームにてお問い合わせも受け付けております。</p>
+      <p class="sec-inquiry01_tel">お電話はこちらの番号から<br><span>090-4200-8819</spa></p>
+    </section><!-- /.sec-inquiry01 -->
+
+    <section class="sec-inquiry02">
+      <header class="section_heading">
+        <h1 class="section_title"><img src="/img/title/inquiry02.svg" width="269" height="101" alt="お申し込みについて"></h1>
+      </header><!-- /.section_headding -->
+      <div class="sec-inquiry02_wrap">
+        <ul class="sec-inquiry02_list">
+          <li>予約後10日以内に、予約金(利用料金の半額)をお支払い願います。</li>
+          <li>残金は当日精算となります。</li>
+          <li>メールフォームをご利用の際は必要事項を記載の上送信のボタンを押してください。</li>
+        </ul><!-- /.sec-inquiry02_list -->
+        <p class="sec-inquiry02_caption">※お申込者都合によるキャンセルの場合、予約金はご返金できません。</p>
+      </div><!-- /.sec-inquiry02_wrap -->
+
+      <section class="inquiryForm">
+        <div class="input-box">
+          <label class="label-area">お名前<span>必須</span></label>
+          <div class="input-area">
+            <input type="text" name="your-name" id="name" class="input-item " placeholder="" />
+          </div>
+        </div>
+        <div class="input-box">
+          <label class="label-area">フリガナ<span>必須</span></label>
+          <div class="input-area">
+            <input type="text" name="your-ruby" id="ruby" class="input-item " placeholder="" />
+          </div>
+        </div>
+        <div class="input-box">
+          <label class="label-area">メールアドレス<span>必須</span></label>
+          <div class="input-area">
+            <input type="email" name="your-email" id="email" class="input-item" placeholder="" />
+          </div>
+        </div>
+        <div class="input-box">
+          <label class="label-area">電話番号<span>必須</span></label>
+          <div class="input-area">
+            <input type="tel" name="your-telephone" id="telephone" class="input-item" placeholder="" />
+          </div>
+        </div>
+        <div class="input-box">
+          <label class="label-area">お問い合わせ項目<span>必須</span></label>
+          <ul class="radio_list">
+            <li class="radio_item">
+              <label class="radio-area" for="choice-1">
+                <input class="radio-area_input" type="radio" name="choice" value="見学" id="choice-1">
+                <span class="radio-area_icon"></span>
+                <span class="radio-area_text">見学</span>
+              </label>
+            </li>
+            <li class="radio_item">
+              <label class="radio-area" for="choice-2">
+                <input class="radio-area_input" type="radio" name="choice" value="コンサート予約" id="choice-2">
+                <span class="radio-area_icon"></span>
+                <span class="radio-area_text">コンサート予約</span>
+              </label>
+            </li>
+            <li class="radio_item">
+              <label class="radio-area" for="choice-3">
+                <input class="radio-area_input" type="radio" name="choice" value="会場予約" id="choice-3">
+                <span class="radio-area_icon"></span>
+                <span class="radio-area_text">会場予約</span>
+              </label>
+            </li>
+            <li class="radio_item">
+              <label class="radio-area" for="choice-4">
+                <input class="radio-area_input" type="radio" name="choice" value="その他" id="choice-4">
+                <span class="radio-area_icon"></span>
+                <span class="radio-area_text">その他</span>
+              </label>
+            </li>
+          </ul>
+          <p class="input-box_caption">※お問い合わせの内容を備考欄に<br class="br-sp02">ご記載ください。</p>
+        </div>
+        <div class="input-box">
+          <label class="label-area">備考<span>必須</span></label>
+          <div class="input-area scroll_box">
+            <textarea name="your-message" id="message" class="input-item message" placeholder=""></textarea>
+          </div>
+        </div>
+        <button type="submit" class="submit_button">送&ensp;信</button>
+      </section><!-- /.inquiryForm -->
+    </section><!-- /.sec-inquiry02 -->
+    <%- include('../template/_contactBox' ); %>
+  </main>
+  <%- include( '../template/_footer' ) %>

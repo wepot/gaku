@@ -1,0 +1,113 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ====== googleマップ ====== */
+.google-map{
+  position: relative;
+  width: 100%;
+  max-width: 1134px;
+  height: 0;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+  padding: {
+    top: 24.5%;
+    right: 20px;
+    left: 20px;
+  }
+  @include m.responsive(margin-top, 40px, 60px, 768px, 1094px);
+  @include m.responsive(margin-bottom, 40px, 20px, 768px, 1094px);
+
+    @include m.mq(md) {
+      padding-top: 75%;
+    }
+
+  iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &_caption{
+    margin: {
+      top: 10px;
+      right: 24px;
+    }
+    font-size: s.rem(14px);
+    font-weight: 700;
+    text-align: right;
+
+      @include m.mq(md) {
+        margin-right: 0;
+        text-align: center;
+      }
+
+      a:hover{
+        text-decoration: underline;
+        opacity: .8;
+      }
+  }
+}
+
+/*! ====== アクセス詳細 ====== */
+.access{
+  width: 100%;
+  max-width: 1134px;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+  @include m.responsive(margin-bottom, 40px, 60px, 768px, 1094px);
+
+  &_inner{
+    margin-top: 60px;
+    padding: 0 20px;
+  }
+}
+
+.access-table{
+  width: 100%;
+  max-width: 700px;
+  margin: 50px auto 30px;
+  border-top: 1px solid #a48661;
+  border-collapse: collapse;
+  letter-spacing: .05em;
+    @include m.mq(md) {
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+
+    tr{
+      height: 64px;
+    }
+
+    th{
+      width: 212px;
+      padding-left: 105px;
+      border-bottom: 1px solid #a48661;
+      font-weight: 700;
+      text-align: left;
+        @include m.mq(md) {
+          width: 25%;
+          padding-left: 0;
+          font-size: s.rem(14px);
+        }
+    }
+
+    td{
+      border-bottom: 1px solid #a48661;
+      font-weight: 500;
+        @include m.mq(md) {
+          padding: 5px 0;
+          font-size: s.rem(14px);
+        }
+    }
+}
+
+.access_btn{
+  margin: 0 auto;
+}

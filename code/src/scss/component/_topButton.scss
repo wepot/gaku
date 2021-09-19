@@ -1,0 +1,39 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+トップへ戻るボタン
+==================================== */
+.js-scroll-fadein {
+  transition: opacity 1s;
+  visibility: hidden;
+  opacity: 0;
+  &.is-fadein {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.arrow{
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  padding: 25px;
+  border: 1px solid s.$brown;
+  background-color: s.$red;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  z-index: 20;
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      width: 35px;
+      height: 38px;
+      transform: translate(-50%,-50%);
+      background: url(../img/icon/top-arrow.svg) center/100% no-repeat;
+    }
+}

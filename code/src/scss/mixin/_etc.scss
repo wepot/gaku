@@ -1,0 +1,29 @@
+// =============コンテナ幅=============
+@mixin innerBox{
+  width: 100%;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+  padding: 0 20px;
+}
+
+
+// =============背景100vw=============
+@mixin black-full{
+  margin: 0 calc(50% - 50vw);
+  padding: 0 calc(50vw - 50%);
+  background-color: #191919;
+}
+
+@mixin red-full{
+  margin: 0 calc(50% - 50vw);
+  padding: 0 calc(50vw - 50%);
+  background-color: #500808;
+}
+
+@mixin brown-full{
+  margin: 0 calc(50% - 50vw);
+  padding: 0 calc(50vw - 50%);
+  background-color: #aa855b;
+}

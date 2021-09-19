@@ -1,0 +1,46 @@
+{
+  "top": {
+    "title": "GAKU",
+    "description": "",
+    "url": "http://gaku.jp/"
+  },
+  "about": {
+    "title": "GAKUについて",
+    "description": "",
+    "url": "http://gaku.jp/about/"
+  },
+  "user-guide": {
+    "title": "ご利用案内",
+    "description": "",
+    "url": "http://gaku.jp/user-guide/"
+  },
+  "live": {
+    "title": "BLOG",
+    "description": "",
+    "url": "http://gaku.jp/live/"
+  },
+  "detail": {
+    "title": "記事タイトル",
+    "description": "",
+    "url": "http://gaku.jp/live/detail/"
+  },
+  "blog": {
+    "title": "BLOG",
+    "description": "",
+    "url": "http://gaku.jp/blog/"
+  },
+  "single": {
+    "title": "記事タイトル",
+    "description": "記事の抜粋",
+    "url": "http://gaku.jp/blog/yy/"
+  },
+  "inquiry": {
+    "title": "お問い合わせ",
+    "description": "樂へのお問い合わせです。",
+    "url": "http://gaku.jp/inquiry/"
+  },
+  "404": {
+    "title": "404",
+    "description": "ページが見つかりません"
+  }
+}

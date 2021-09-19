@@ -1,0 +1,27 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ====== お問い合わせボタン ====== */
+.inquiry_btn{
+  @include m.responsive(width, 120px, 145px, 768px, 1094px);
+  @include m.responsive(height, 39px, 46px, 768px, 1094px);
+}
+
+.inquiry_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: inherit;
+  height: inherit;
+  padding: 5px;
+  background: url(../img/icon/inquiry.png) center/100% no-repeat;
+  color: s.$white;
+  @include m.responsive(font-size, .9rem, 1rem, 48rem, 68.375rem);
+  font-weight: 700;
+  letter-spacing: .05em;
+  transition: background-color .3s ease-out;
+    &:hover{
+      background-color: s.$brown;
+    }
+}

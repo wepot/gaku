@@ -1,0 +1,29 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+メインヘッダー
+==================================== */
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: s.$red;
+  z-index: var(--z-index-header);
+
+  &_inner {
+    position: relative;
+    width: 100%;
+    max-width: 1080px;
+    @include m.responsive(height, 80px, 133px, 768px, 1094px);
+    margin: 20px auto 0;
+    padding: 0 20px;
+
+      @include m.mq(md) {
+        height: 80px;
+        margin: 0;
+        padding: 15px;
+      }
+  }
+}
+

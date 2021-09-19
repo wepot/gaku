@@ -1,0 +1,66 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+コンサート情報一覧
+==================================== */
+.liveMedia{
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  border-top: 1px solid #a48661;
+  border-bottom: 1px solid #a48661;
+
+  &_item{
+    padding: 23px 10px;
+    border-top: 1px solid #a48661;
+      &:first-child{
+        border: none;
+      }
+
+      @include m.mq(md) {
+        padding: 20px 25px;
+      }
+  }
+
+  &_wrap{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+      @include m.mq(sm) {
+        flex-direction: column;
+      }
+  }
+
+  &_img {
+    width: 100%;
+    max-width: 192px;
+    height: 100%;
+    max-height: 108px;
+      img {
+        border-radius: 10px;
+      }
+      @include m.mq(sm) {
+        max-width: 260px;
+        max-height: 146px;
+      }
+  }
+
+  &_body {
+    margin-left: 38px;
+      @include m.mq(sm) {
+        margin: 20px 0 0;
+        font-size: s.rem(14px);
+      }
+  }
+
+  &_date{
+    margin-bottom: 4px;
+    font-weight: 300;
+  }
+
+  &_text{
+    font-weight: 700;
+  }
+}
