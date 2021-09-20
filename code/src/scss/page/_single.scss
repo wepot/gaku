@@ -28,7 +28,7 @@
   }
 }
 
-.blog{
+.blog-article{
   padding: 30px 12.3% 40px;
   border: 3px solid s.$brown;
   background-color: s.$white;
@@ -36,23 +36,6 @@
     @include m.mq(md) {
       padding: 40px 20px 50px;
     }
-
-  &_header{
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto 30px;
-    padding-bottom: 30px;
-    background: url(../img/icon/arrow-blog.png) bottom center/100% no-repeat;
-      @include m.mq(md) {
-        padding-bottom: 20px;
-      }
-  }
-
-  h1{
-    @include m.responsive(font-size, 1rem, 1.5rem, 48rem, 68.375rem);
-    font-weight: 700;
-    text-align: center;
-  }
 
   p{
     margin-bottom: 40px;
@@ -71,36 +54,53 @@
     @include m.responsive(margin-top, 30px, 50px, 768px, 1094px);
     @include m.responsive(margin-bottom, 40px, 60px, 768px, 1094px);
   }
+}
 
-  &-address02_link:hover{
-    text-decoration: underline;
+.blog_header{
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto 30px;
+  padding-bottom: 30px;
+  background: url(../img/icon/arrow-blog.png) bottom center/100% no-repeat;
+    @include m.mq(md) {
+      padding-bottom: 20px;
+    }
+
+  h1{
+    @include m.responsive(font-size, 1rem, 1.5rem, 48rem, 68.375rem);
+    font-weight: 700;
+    text-align: center;
   }
+}
 
 // カテゴリー＆投稿日時
-  &-meta{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-      @include m.mq(md) {
-        flex-direction: column;
-      }
-
-    p{
-      margin-bottom: 0;
+.blog-meta{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+    @include m.mq(md) {
+      flex-direction: column;
     }
 
-    &_tag{
-      margin-right: auto;
-    }
+  p{
+    margin-bottom: 0;
   }
+
+  &_tag{
+    margin-right: auto;
+  }
+}
+
+.blog-address02_link:hover{
+  text-decoration: underline;
+}
 
 // ページャー
-  &_pager{
-    margin-top: 30px;
-    color: s.$brown;
-    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
-    font-weight: 700;
-  }
+.blog_pager{
+  margin-top: 30px;
+  color: s.$brown;
+  @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+  font-weight: 700;
 }
 
 // コンサート情報投稿
