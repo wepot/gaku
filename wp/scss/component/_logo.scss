@@ -1,0 +1,48 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ====== ロゴ ====== */
+.gaku-logo {
+  display: block;
+  width: inherit;
+  height: inherit;
+
+    svg{
+      width: inherit;
+      height: inherit;
+    }
+
+    &:hover{
+      opacity: .8;
+    }
+}
+
+.header-logo{
+  @include m.responsive(height, 80px, 133px, 768px, 1094px);
+}
+
+.gnavSp-logo{
+  display: none;
+
+  @include m.mq(md) {
+    position: absolute;
+    display: block;
+    top: 15px;
+    left: 20px;
+    width: 159px;
+    height: 49px;
+  }
+}
+
+.access-logo{
+  width: 283px;
+  height: 86px;
+  @include m.responsive(width, 159px, 283px, 768px, 1094px);
+  @include m.responsive(height, 49px, 86px, 768px, 1094px);
+  margin: 0 auto;
+    svg{
+      width: inherit;
+      height: inherit;
+    }
+}

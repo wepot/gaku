@@ -1,0 +1,39 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+
+// ==================@font-face設定==================
+// 第1引数：フォント名(font-family)を指定
+// 第2引数：フォントファイルへの相対パスを指定
+// 第3引数：文字の太さ(font-weight)を指定
+// 第4引数：書体(font-style)を指定
+// 第5引数：対応するフォントファイルの拡張子を指定
+// 
+// (例)@include font-face('Lora', 'fonts/Lora', 400, italic, ttf);
+// (例)@include font-face('Samplinal', 'fonts/Samplinal', bold, normal, eot woff2 woff);
+// ==================================================
+@mixin font-face($family, $path, $weight: normal, $style: normal, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: '?',
+    svg: '#' + str-replace($family, ' ', '_'),
+  );
+
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype',
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($family);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}

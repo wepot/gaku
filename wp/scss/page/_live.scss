@@ -1,0 +1,30 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+コンサート情報ページ
+==================================== */
+.livePage{
+  margin-bottom: 25px;
+    @include m.mq(md) {
+      margin-bottom: 60px;
+    }
+
+  &_inner{
+    max-width: 1134px;
+    @include m.innerBox;
+      @include m.mq(sm) {
+        max-width: 350px;
+      }
+  }
+
+  &-media{
+    margin-top: 50px;
+    margin-bottom: 20px;
+      @include m.mq(sm) {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+  }
+}

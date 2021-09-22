@@ -1,0 +1,107 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ====== 利用料金 ====== */
+.guide-arrowTitle{
+  position: relative;
+  max-width: 516px;
+  margin: 55px auto 0;
+  @include m.responsive(font-size, .875rem, 1.5rem, 48rem, 68.375rem);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .05em;
+    @include m.mq(md) {
+      margin-top: 20px;
+    }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+    width: 173px;
+    height: 22px;
+      @include m.mq(sm) {
+        @include m.responsive(width, 100px, 173px, 320px, 750px);
+        height: 20px;
+      }
+  }
+
+  &::before {
+    left: 0;
+    background: url(../img/icon/arrow03-l.png) center/100% no-repeat;
+  }
+
+  &::after {
+    right: 0;
+    background: url(../img/icon/arrow03-r.png) center/100% no-repeat;
+  }
+}
+
+
+/*! ====== 音楽教室 ====== */ 
+.class-arrow{
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      transform: translateY(-50%);
+      width: 126px;
+      height: 22px;
+        @include m.mq(md) {
+          @include m.responsive(width, 80px, 126px, 570px, 750px);
+          height: 20px;
+        }
+        @include m.mq(sm) {
+          width: 100px;
+          height: 20px;
+        }
+    }
+    &::before {
+      left: 0;
+      background: url(../img/icon/arrow03-l.png) center/100% no-repeat;
+    }
+    
+    &::after {
+      right: 0;
+      background: url(../img/icon/arrow03-r.png) center/100% no-repeat;
+    }
+}
+
+
+/*! ====== サイドメニュー ====== */
+.sideMenu_title{
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+  color: s.$brown;
+  font-weight: 700;
+  text-align: center;
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      transform: translateY(-50%);
+      width: 70px;
+      height: 22px;
+    }
+
+    &::before {
+      left: -5px;
+      background: url(../img/icon/arrow02-l.png) center/100% no-repeat;
+    }
+    
+    &::after {
+      right: -5px;
+      background: url(../img/icon/arrow02-r.png) center/100% no-repeat;
+    }
+}
+
+

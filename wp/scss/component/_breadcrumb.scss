@@ -1,0 +1,20 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ====== パンくずリスト ====== */
+.breadcrumb-area{
+  width: 100%;
+  max-width: 1134px;
+  margin: 20px auto;
+  padding: 0 20px;
+  color: s.$brown;
+  font-size: s.rem(14px);
+    @include m.mq(md) {
+      margin-top: 5px;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+}

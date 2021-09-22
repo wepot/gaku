@@ -1,0 +1,231 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+トップページ
+==================================== */
+.top-news {
+  width: 100%;
+  max-width: 527px;
+    margin: {
+    right: auto;
+    bottom: 70px;
+    left: auto;
+  }
+  padding: 0 20px;
+
+    @include m.mq(md) {
+      margin-bottom: 120px;
+    }
+
+  &_wrap{
+    padding: 12px 0 0;
+    border-top: 5px solid s.$brown;
+    border-bottom: 5px solid s.$brown;
+  }
+
+  &_title{
+    text-align: center;
+  }
+
+  &_body {
+    padding: 10px 0;
+  }
+
+  &_item {
+    padding: 10px 0;
+    margin: 0 1.5em;
+    border-top: 1px solid s.$brown;
+      &:first-child{
+        border: none;
+      }
+    letter-spacing: .02em;
+      @include m.mq(md) {
+        font-size: s.rem(14px);
+      }
+  }
+
+  &_date{
+    margin-bottom: 4px;
+    font-weight: 300;
+  }
+
+  &_text{
+    font-weight: 700;
+  }
+}
+
+// top-about
+.top-about {
+  position: relative;
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto 80px;
+    @include m.mq(md) {
+      margin-bottom: 60px;
+    }
+
+  &_wrap{
+    width: 100%;
+    max-width: 923px;
+    padding: {
+      top: 37px;
+      bottom: 50px;
+    }
+    background-color: #000;
+      @include m.mq(md) {
+        padding: {
+          top: 100px;
+          right: 20px;
+          bottom: 40px;
+          left: 20px;
+        }
+      }
+  }
+
+  &_body{
+    @include m.responsive(max-width, 370px, 490px, 768px, 1366px);
+    @include m.responsive(margin-left, 20px, 120px, 900px, 1366px);
+      @include m.mq(md) {
+        max-width: initial;
+        margin-left: 0;
+      }
+  }
+
+  &_title{
+    width: 85%;
+    max-width: 396px;
+
+    @include m.mq(md) {
+      width: 100%;
+      max-width: 298px;
+    }
+  }
+
+  &_text{
+    margin: 37px 0;
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    line-height: 2.25;
+      @include m.mq(md) {
+        margin: 24px 0 40px;
+      }
+  }
+
+  &_btn{
+    @include m.mq(md) {
+      margin: 0 auto;
+    }
+  }
+  .button02{
+    background-color: #000;
+      &:hover{
+        background-color: s.$white;
+        color: #000;
+      }
+  }
+
+  &_img{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 51%;
+    @include m.responsive(max-width, 360px, 683px, 768px, 1366px);
+    
+      img{
+        border-radius: 40px 0 0 40px;
+      }
+
+      @include m.mq(md) {
+        top: -85px;
+        transform: initial;
+        width: 100%;
+        @include m.responsive(max-width, 257px, 380px, 580px, 750px);
+      }
+  }
+}
+
+/*! ====== トップBLOG ====== */
+.top-blog{
+  @include m.responsive(margin-bottom, 60px, 130px, 768px, 1094px);
+  
+  &_inner{
+    max-width: 1134px;
+    @include m.innerBox;
+      @include m.mq(sm) {
+        max-width: 350px;
+      }
+  }
+}
+
+.top-blogCards{
+  margin: {
+    top: 60px;
+    bottom: 60px;
+  }
+    @include m.mq(md) {
+      margin: {
+        top: 35px;
+        bottom: 40px;
+      }
+    }
+
+  &_btn{
+    margin: 0 auto;
+  }
+}
+
+/*! ====== トップlive ====== */
+.top-live{
+  @include m.responsive(margin-bottom, 60px, 130px, 768px, 1094px);
+    &_inner{
+      max-width: 1134px;
+      @include m.innerBox;
+    }
+}
+
+.top-liveMedia{
+  @include m.responsive(margin-top, 60px, 73px, 768px, 1094px);
+  @include m.responsive(margin-bottom, 40px, 52px, 768px, 1094px);
+
+  &_btn{
+    margin: 0 auto 60px;
+      @include m.mq(md) {
+        margin-bottom: 40px;
+      }
+  }
+}
+
+/*! ====== googleカレンダー ====== */
+.google-calender{
+  position: relative;
+  width: 100%;
+  max-width: 1134px;
+  height: 0;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+  padding: {
+    top: 41%;
+    right: 20px;
+    left: 20px;
+  }
+  @include m.responsive(margin-top, 40px, 60px, 768px, 1094px);
+  @include m.responsive(margin-bottom, 40px, 20px, 768px, 1094px);
+
+    @include m.mq(md) {
+      @include m.responsive(height, 360px, 780px, 350px, 750px);
+      padding-top: 0;
+    }
+
+  .google-calender_iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+

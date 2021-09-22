@@ -1,0 +1,292 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+ご利用案内
+==================================== */
+.guide_caption{
+  @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+}
+
+// ご利用案内
+.sec-guide01{
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+    @include m.mq(md) {
+      margin-bottom: 40px;
+    }
+
+  &_list{
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 516px;
+    margin: 50px auto 30px;
+      @include m.mq(md) {
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+      @include m.mq(sm) {
+        flex-direction: column;
+        max-width: 232px;
+      }
+  }
+
+  .guide_caption{
+    text-align: center;
+  }
+}
+
+.price_item{
+  width: 50%;
+  max-width: 232px;
+    &:first-child{
+      margin-right: 52px;
+      @include m.mq(sm) {
+        margin-bottom: 20px;
+        margin-right: 0;
+      }
+    }
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: .03em;
+
+      @include m.mq(sm) {
+        width: 100%;
+      }
+}
+
+.price_title{
+  padding: .25em;
+  background-color: s.$brown;
+  @include m.responsive(font-size, 1.25rem, 1.5rem, 48rem, 68.375rem);
+  text-align: center;
+}
+
+.price_detail{
+  padding: .3em;
+  border: 1px solid s.$brown;
+  @include m.responsive(font-size, .9375rem, 1.25rem, 48rem, 68.375rem);
+    span{
+      font-size: .8em;
+    }
+}
+
+// 音楽教室
+.sec-guide02{
+  width: 100%;
+  max-width: 910px;
+  margin: {
+    right: auto;
+    left: auto;
+  }
+  @include m.responsive(margin-bottom, 40px, 80px, 768px, 1094px);
+  padding: 0 20px;
+    @include m.mq(sm) {
+      max-width: 350px;
+    }
+}
+
+.class{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  @include m.responsive(margin-top, 40px, 80px, 768px, 1094px);
+
+  &_item{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    max-width: 360px;
+    height: auto;
+      &:nth-child(-n+2){
+        margin-bottom: 60px;
+      }
+      &:nth-child(2n){
+        margin-left: auto;
+      }
+    border: solid 1px s.$brown;
+    border-radius: 20px;
+
+      @include m.mq(sm) {
+        width: 100%;
+          &:nth-child(-n + 3) {
+            margin-bottom: 30px;
+          }
+      }
+  }
+
+  &_img{
+    width: 100%;
+    max-width: 360px;
+    max-height: 195px;
+      img{
+        border-radius: 20px 20px 0 0;
+      }
+  }
+
+  &_body{
+    padding: 15px 15px 20px;
+  }
+
+  &_title{
+    @include m.responsive(font-size, 1rem, 1.25rem, 48rem, 68.375rem);
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &_price{
+    margin: 10px 0;
+    padding: 7px;
+    background-color: s.$brown;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &_text{
+    margin-bottom: 7px;
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    line-height: 2.25;
+  }
+
+  &_detail{
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    text-align: center;
+    font-weight: 700;
+  }
+}
+
+.mb20{
+  margin-bottom: 20px;
+}
+
+// 利用シーン
+.sec-guide03{
+  padding: 50px 0 60px;
+  background-color: s.$black;
+
+  &_caption{
+    margin: 35px 0 30px;
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    text-align: center;
+      @include m.mq(md) {
+        margin: 20px 0;
+      }
+  }
+
+  &_wrap{
+    width: 100%;
+    max-width: 914px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &_list{
+    display: flex;
+    flex-wrap: wrap;
+      @include m.mq(sm) {
+        flex-direction: column;
+      }
+  }
+
+  &_item{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    max-width: 408px;
+    height: auto;
+      &:nth-child(-n+2){
+        margin-bottom: 40px;
+      }
+      &:nth-child(2n){
+        margin-left: auto;
+      }
+    padding: 40px 33px;
+    border: solid 1px #a48661;
+    border-radius: 20px;
+      @include m.mq(sm) {
+        width: 100%;
+        padding: 25px 15px;
+        margin-left: 0;
+          &:nth-child(-n+3){
+            margin-bottom: 40px;
+          }
+      }
+  }
+
+  &_title{
+    margin-bottom: 15px;
+    @include m.responsive(font-size, 1.125rem, 1.25rem, 48rem, 68.375rem);
+    font-weight: 700;
+    text-align: center;
+      span{
+        @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+      }
+  }
+
+  &_text{
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    line-height: 1.6;
+    letter-spacing: .04em;
+  }
+}
+
+// 利用規約
+.sec-guide04{
+  @include m.responsive(margin-top, 40px, 80px, 768px, 1094px);
+  @include m.responsive(margin-bottom, 40px, 80px, 768px, 1094px);
+}
+
+// お申し込み方法
+.sec-guide05{
+  padding: 58px 0;
+  background-color: s.$black;
+    @include m.mq(md) {
+      padding: 50px 0 60px;
+    }
+}
+
+// Numリスト
+.guideNum_wrap{
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 0 20px;
+    @include m.mq(md) {
+      max-width: 520px;
+    }
+}
+
+.guideNum_list{
+  margin: 30px 0;
+}
+
+.guideNum_item{
+  position: relative;
+  margin-top: 20px;
+    &:first-child{
+      margin-top: 0;
+    }
+  padding-left: 40px;
+  @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+
+    span{
+      position: absolute;
+      display: inline-block;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      background-color: s.$brown;
+      border-radius: 50%;
+      color: s.$red;
+      font-size: s.rem(18px);
+      text-align: center;
+    }
+    .num{
+      color: s.$black;
+    }
+}

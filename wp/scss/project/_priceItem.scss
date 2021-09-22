@@ -1,0 +1,32 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ====== 料金ボックス ====== */
+.price_item{
+  width: 50%;
+  max-width: 232px;
+    &:first-child{
+      margin-right: 52px;
+    }
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .03em;
+}
+
+// タイトル
+.price_title{
+  padding: 7px;
+  background-color: s.$brown;
+  @include m.responsive(font-size, 1.125rem, 1.5rem, 48rem, 68.375rem);
+}
+
+// 料金詳細
+.price_detail{
+  padding: 7px;
+  border: 1px solid s.$brown;
+  @include m.responsive(font-size, 1rem, 1.25rem, 48rem, 68.375rem);
+    span{
+      font-size: .8em;
+    }
+}

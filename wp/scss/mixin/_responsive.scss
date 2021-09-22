@@ -1,0 +1,48 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "sass:math";
+
+
+// =============メディアクエリの指定=============
+@mixin mq($breakpoint) {
+  @if map-has-key(s.$breakpoints, $breakpoint) {
+    @media #{(map-get(s.$breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+  // マップ型で定義されていない値が呼び出されたらエラーを返す
+  @else {
+    @error "指定されたブレイクポイント #{$breakpoint} は定義されていません。";
+  }
+}
+
+
+// ===================フォントサイズ等可変指定==================
+// $property: 可変させたいプロパティ名(font-size,margin,padding等)
+// $minValue: 最小サイズ
+// $maxValue: 最大サイズ
+// $minWidth: この値以下の時、最小サイズ($minValue)で描画
+// $maxWidth: この値以上の時、最大サイズ($maxValue)で描画
+//
+// (例)フォントサイズを768px以下は24px／1200px以上は32px
+// @include m.responsive(font-size, 24px, 32px, 768px, 1200px);
+// @include m.responsive(font-size, 1.5rem, 2.5rem, 48rem, 75rem);
+// ※単位はpx以外でも指定可能
+// =============================================================
+@mixin responsive($property, $minValue, $maxValue, $minWidth, $maxWidth) {
+    #{$property}: $minValue;
+
+  @media screen and (min-width: $minWidth) {
+    $scale: math.div(($maxValue - $minValue) , ($maxWidth - $minWidth));
+    #{$property}: calc(#{$minValue} + #{$scale} * (100vw - #{$minWidth}));
+  }
+
+  @media screen and (min-width: $maxWidth) {
+    #{$property}: $maxValue;
+  }
+}
+
+@mixin fontSize($fsize){
+  $windowW : 1094;
+  font-size: math.div($fsize , $windowW) * 100 + vw;
+}

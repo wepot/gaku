@@ -1,0 +1,69 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+GAKUについて
+==================================== */
+.sec-about01 {
+  margin: 0 auto 50px;
+    @include m.mq(md) {
+      margin-bottom: 40px;
+    }
+
+  &_inner{
+    max-width: 490px;
+    @include m.innerBox;
+  }
+
+  &_catch {
+    width: 100%;
+    max-width: 370px;
+    margin: 40px auto 35px;
+      @include m.mq(md) {
+        max-width: 310px;
+        margin: 30px auto;
+      }
+  }
+
+  &_text {
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    text-align: center;
+    line-height: 2.25;
+    letter-spacing: .04em;
+  }
+}
+
+.sec-about02 {
+  margin-bottom: 50px;
+
+  &_inner{
+    max-width: 317px;
+    @include m.innerBox;
+  }
+
+  &_wrap {
+    width: 100%;
+    margin: 40px auto 60px;
+      @include m.mq(md) {
+        margin-bottom: 40px;
+      }
+  }
+
+  &_img {
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    max-height: 300px;
+    margin: 0 auto;
+      img{
+        border-radius: 10px;
+      }
+  }
+
+  figcaption{
+    max-width: 317px;
+    max-height: 141px;
+    margin-top: 40px;
+  }
+}

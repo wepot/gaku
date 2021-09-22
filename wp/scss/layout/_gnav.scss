@@ -1,0 +1,253 @@
+// ============= 使用ファイル =============
+@use "../setting/" as s;
+@use "../mixin/" as m;
+
+/*! ===================================
+グローバルナビゲーション
+==================================== */
+.gnav {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  &_list {
+    display: flex;
+  }
+
+  &_item-l {
+    display: flex;
+      &:nth-child(2),
+      &:nth-child(3){
+        @include m.responsive(margin-left, 25px, 56px, 768px, 1094px);
+      }
+
+    padding: 5px;
+      &:first-child{
+        padding-left: 0;
+      }
+    color: s.$brown;
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .05em;
+
+      a{
+        display: flex;
+        align-items: center;
+          &:hover{
+            opacity: .8;
+          }
+      }
+  }
+
+  &_item-r {
+    display: flex;
+
+      &:nth-child(1){
+        @include m.responsive(margin-right, 25px, 62px, 768px, 1094px);
+      }
+      &:nth-child(2){
+        margin-right: auto;
+      }
+
+    padding: 5px;
+      &:first-child{
+        padding-left: 0;
+      }
+    color: s.$brown;
+    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .05em;
+
+      a{
+        display: flex;
+        align-items: center;
+          &:hover{
+            opacity: .8;
+          }
+      }
+  }
+
+  &-logo {
+    @include m.responsive(width, 58px, 96px, 768px, 1094px);
+    @include m.responsive(height, 80px, 133px, 768px, 1094px);
+    @include m.responsive(margin-right, 20px, 60px, 768px, 1094px);
+    @include m.responsive(margin-left, 22px, 48px, 768px, 1094px);
+  }
+
+  &-inquiry_btn{
+    margin-top: auto;
+    margin-bottom: auto;
+    @include m.responsive(margin-left, 27px, 67px, 768px, 1094px);
+  }
+
+    @include m.mq(md) {
+      display: none;
+    }
+}//.gnav
+
+
+/*! ===================================
+SP版：メニューリスト
+==================================== */
+.gnavSp {
+  display: none;
+
+  @include m.mq(md) {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+    background-color: s.$red;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    
+    /* アニメーション前のメニューの状態 */
+    backface-visibility: hidden;
+    transform: translateX(100vw);
+    transition: all 0.5s ease-in-out;
+
+    &_title{
+      padding: 24px 0;
+      border-bottom: 1px solid s.$brown;
+    }
+
+    &_list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &_item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding-left: 35px;
+      border-bottom: 1px solid s.$brown;
+      font-size: s.rem(18px);
+      font-weight: 700;
+      line-height: 1;
+        &::before {
+          position: absolute;
+          content: "";
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          width: 28px;
+          height: 28px;
+          background-color: s.$brown;
+          border-radius: 50%;
+        }
+        &::after {
+          position: absolute;
+          content: "";
+          top: 50%;
+          left: 7px;
+          transform: translateY(-50%) rotate(-45deg);
+          width: 10px;
+          height: 10px;
+          border-right: 2px solid s.$red;
+          border-bottom: 2px solid s.$red;
+        }
+    }
+
+    a {
+      display: flex;
+      height: 100%;
+      padding: 20px 0;
+    }
+
+    &-inquiry_btn{
+      width: 214px;
+      height: 67px;
+      margin: 30px auto 0;
+      .inquiry_button{
+        font-size: s.rem(20px);
+      }
+    }
+  }
+}
+
+
+/*! ===================================
+ハンバーガーメニュー
+==================================== */
+.gnavSp_btn {
+  display: none;
+
+    @include m.mq(md) {
+      position: relative;
+      display: block;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      transition: all .3s;
+      width: 40px;
+      height: 26px;
+      margin-left: auto;
+      border-width: 0;
+      background-color: s.$red;
+      cursor: pointer;
+      z-index: var(--z-index-modal);
+
+      &:focus:not(:focus-visible) {
+        outline: 0;
+      }
+
+      span {
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: s.$white;
+        transition: all .3s;
+      }
+
+      &-bar1 {
+        top: 0px;
+      }
+      &-bar2 {
+        top: 12px;
+      }
+      &-bar3 {
+        top: 24px;
+      }
+    }
+}
+
+/*! ===================================
+メニュー開閉
+==================================== */
+#btn01.open {
+  .gnavSp_btn-bar1 {
+    transform: translateY(12px) rotate(45deg);
+  }
+  .gnavSp_btn-bar2 {
+    opacity: 0;
+  }
+  .gnavSp_btn-bar3 {
+    transform: translateY(-12px) rotate(-45deg);
+  }
+}
+
+/* メニューリスト */
+.gnavSp.open {
+  transform: translateX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+/* 背景スクロール禁止 */
+.is-fixed {
+  height: 100%;
+  overflow: hidden;
+}
