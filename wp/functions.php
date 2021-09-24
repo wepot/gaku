@@ -68,19 +68,6 @@ add_image_size( 'imgLive', 260, 146, true );
 
 
 /*----------------------------------*
-* アーカイブ
-*----------------------------------*/
-/* 投稿アーカイブページの作成 */
-function post_has_archive( $args, $post_type ) {
-	if ( 'post' == $post_type ) {
-		$args['rewrite'] = true;
-		$args['has_archive'] = 'blog';
-	}
-	return $args;
-}
-add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
-
-/*----------------------------------*
 * 抜粋文 文字数・末尾変更
 *----------------------------------*/
 function custom_excerpt_length() {
@@ -109,6 +96,33 @@ function widgetarea_init()
     ));
 }
 add_action('widgets_init', 'widgetarea_init');
+
+/*----------------------------------*
+* カスタム投稿タイプ
+*----------------------------------*/
+add_action( 'init', 'custom_post_type' );
+function custom_post_type() {
+  register_post_type( 'live', // カスタム投稿タイプのスラッグの指定
+    array(
+      'labels' => array(
+        'name' => __( 'イベント情報' ),          // メニューに表示されるアサル（ASAL）
+        'singular_name' => __( 'イベント情報' ), // 単体系のアサル（ASAL）
+        'add_new' => _x('新規追加', 'live'),        // 新規追加のアサル（ASAL）
+        'add_new_item' => __('新規追加')            // 新規追加のアサル（ASAL）
+      ),
+      'public' => true,                 // 投稿タイプをパブリックにする
+      'has_archive' => true,            // アーカイブを有効にする
+      'hierarchical' => false,          // ページ階層の指定
+      'menu_position' =>5,              // 管理画面上の配置指定
+      'menu_icon' => 'dashicons-edit',  // アイコン
+      'rewrite' => array('with_front' => false),
+      'show_in_rest' => true,
+      'supports' => array('title','editor','thumbnail','custom-fields','excerpt','revisions') // サポート指定
+      // 全てのサポートを使う場合は下記参照
+      //'supports' => array('title','editor','thumbnail','custom-fields','excerpt','author','trackbacks','comments','revisions','page-attributes')
+    )
+  );
+}
 
 /*----------------------------------*
 * 管理バー非表示

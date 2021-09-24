@@ -6,7 +6,7 @@
                   <figure class="contactBox_img01">
                     <img src="<?php echo get_template_directory_uri(); ?>/common/img/icon/live.png" width="45" height="46" alt="">
                   </figure>
-                  <p class="contactBox_text">コンサート<br>情報一覧</p>
+                  <p class="contactBox_text">イベント<br>情報一覧</p>
                 </a>
               </li><!-- /.contactBox_item -->
               <li class="contactBox_item">

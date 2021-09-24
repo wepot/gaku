@@ -27,7 +27,27 @@
             <div class="top-news_wrap">
               <h2 class="top-news_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/top-news.svg" width="487" height="48" alt="News"></h2>
               <div class="top-news_body">
+<?php
+$args = array(
+    'posts_per_page' => 3,
+    'post_type' => array('live','post'), //postは通常の投稿機能
+    'orderby' => 'date',
+);
+$my_posts = get_posts($args);
+foreach ($my_posts as $post):
+setup_postdata($post);
+?>
                 <article class="top-news_item">
+                  <a href="<?php the_permalink(); ?>">
+                    <p class="top-news_date"><time datetime="<?php the_time('Y.m.d'); ?>"><?php the_time('Y.m.d'); ?></time></p>
+                    <p class="top-news_text"><?php the_title(); ?></p>
+                  </a>
+                </article>
+<?php 
+endforeach;
+wp_reset_postdata();
+?>
+                <!-- <article class="top-news_item">
                   <a href="">
                     <p class="top-news_date"><time datetime="">MMMM.YY.DD</time></p>
                     <p class="top-news_text">NEWSのテキストが入りますNEWSのテキストが入ります</p>
@@ -38,13 +58,7 @@
                     <p class="top-news_date"><time datetime="">MMMM.YY.DD</time></p>
                     <p class="top-news_text">NEWSのテキストが入りますNEWSのテキストが入ります</p>
                   </a>
-                </article>
-                <article class="top-news_item">
-                  <a href="">
-                    <p class="top-news_date"><time datetime="">MMMM.YY.DD</time></p>
-                    <p class="top-news_text">NEWSのテキストが入りますNEWSのテキストが入ります</p>
-                  </a>
-                </article>
+                </article> -->
               </div><!-- /.top-news_body -->
             </div><!-- /.top-news_wrap -->
           </article><!-- /.top-news -->
@@ -73,7 +87,8 @@
             <article class="blogCards top-blogCards">
 <?php
 $args = array(
-'posts_per_page' => 3 // 表示件数
+  'post_type' => 'post',
+  'posts_per_page' => 3 // 表示件数
 );
 $posts = get_posts( $args );
 foreach ( $posts as $post ): // ループの開始
@@ -96,7 +111,7 @@ wp_reset_postdata();
         <section class="top-live">
           <div class="top-live_inner">
             <header class="section_heading">
-              <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/live.svg" width="257" height="101" alt="コンサート情報"></h2>
+              <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/live.svg" width="257" height="101" alt="イベント情報"></h2>
             </header><!-- /.section_headding -->
             <article class="liveMedia top-liveMedia">
 <?php
@@ -117,42 +132,9 @@ if ( $live_query->have_posts() ) :
 endif;
 wp_reset_postdata();
 ?>
-              <!-- <article class="liveMedia_item">
-                <a class="liveMedia_wrap" href="/live/single/">
-                  <figure class="liveMedia_img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/common/img/live/live-img01.jpg" width="260" height="146" alt="">
-                  </figure>
-                  <div class="liveMedia_body">
-                    <p class="liveMedia_date"><time datetime="">MMMM.YY.DD</time></p>
-                    <p class="liveMedia_text">NEWSのテキストが入りますNEWSのテキストが入ります</p>
-                  </div>
-                </a>
-              </article>
-              <article class="liveMedia_item">
-                <a class="liveMedia_wrap" href="/live/single/">
-                  <figure class="liveMedia_img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/common/img/live/live-img02.jpg" width="260" height="146" alt="">
-                  </figure>
-                  <div class="liveMedia_body">
-                    <p class="liveMedia_date"><time datetime="">MMMM.YY.DD</time></p>
-                    <p class="liveMedia_text">NEWSのテキストが入りますNEWSのテキストが入ります</p>
-                  </div>
-                </a>
-              </article>
-              <article class="liveMedia_item">
-                <a class="liveMedia_wrap" href="/live/single/">
-                  <figure class="liveMedia_img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/common/img/live/live-img03.jpg" width="260" height="146" alt="">
-                  </figure>
-                  <div class="liveMedia_body">
-                    <p class="liveMedia_date"><time datetime="">MMMM.YY.DD</time></p>
-                    <p class="liveMedia_text">1NEWSのテキストが入りますNEWSのテキストが入ります</p>
-                  </div>
-                </a>
-              </article> -->
             </article><!-- /.liveMedia -->
             <div class="cta_btn02 top-liveMedia_btn">
-              <a href="<?php echo esc_url(home_url('')); ?>/live/" class="button01">コンサート情報一覧</a>
+              <a href="<?php echo esc_url(home_url('')); ?>/live/" class="button01">イベント情報一覧</a>
             </div>
             <div class="google-calender">
               <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FTokyo&src=Z2FrdS5waWFub0BnbWFpbC5jb20&src=cG9kbWM5c2Vxb3JzbTViNnZtZGZwbWloZThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23F4511E&color=%23616161" style="border:solid 1px #777" width="1094" height="448" frameborder="0" scrolling="no" class="google-calender_iframe"></iframe>
