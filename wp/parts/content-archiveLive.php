@@ -3,9 +3,9 @@
                   <figure class="liveMedia_img">
 <?php
 if (has_post_thumbnail() ) {
-  the_post_thumbnail('img192');
+  the_post_thumbnail('imgLive');
 } else {
-  echo '<img src="' . esc_url(get_template_directory_uri()) . '/common/img/blog/blog-img01.jpg" alt="" width="192" height="108">';
+  echo '<img src="' . esc_url(get_template_directory_uri()) . '/common/img/blog/blog-img01.jpg" alt="" width="260" height="146">';
 }
 ?>
                   </figure>

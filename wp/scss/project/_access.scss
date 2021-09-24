@@ -58,14 +58,12 @@
   width: 100%;
   max-width: 1134px;
   margin: {
+    top: -40px;
     right: auto;
     left: auto;
   }
   @include m.responsive(margin-bottom, 40px, 60px, 768px, 1094px);
-    @include m.mq(md) {
-      margin-top: -40px;
-      padding-top: 40px;
-    }
+  padding-top: 40px;
 
   &_inner{
     margin-top: 60px;

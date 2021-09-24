@@ -27,8 +27,9 @@
     letter-spacing: 0.05em;
   }
 
-  &_item{
+  &_category li{
     padding: 0 22px;
+    color: s.$brown;
     line-height: 2.25;
       a{
         display: inline-block;
@@ -40,33 +41,32 @@
       }
   }//item
 
-  .wp-block-archives{
-    li {
-      padding: 0 22px;
-      line-height: 2.25;
-        a{
-          position: relative;
-          display: inline-block;
-          padding-left: 22px;
-          color: s.$brown;
-          font-weight: 500;
-  
-            &::before{
-              position: absolute;
-              content: "";
-              top: 50%;
-              left: 0px;
-              width: 10px;
-              height: 10px;
-              border-top: 2px solid s.$brown;
-              border-right: 2px solid s.$brown;
-              transform: translateY(-50%) rotate(45deg);
-            }
-            &:hover{
-              opacity: .8;
-            }
-        }
-    }
+  &_archive li{
+    padding: 0 22px;
+    color: s.$brown;
+    line-height: 2.25;
+      a{
+        position: relative;
+        display: inline-block;
+        padding-left: 22px;
+        // color: s.$brown;
+        font-weight: 500;
+
+          &::before{
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 0px;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid s.$brown;
+            border-right: 2px solid s.$brown;
+            transform: translateY(-50%) rotate(45deg);
+          }
+          &:hover{
+            opacity: .8;
+          }
+      }
   }
 
   @include m.mq(md) {

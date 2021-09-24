@@ -61,10 +61,10 @@ function my_css_attributes_filter($var) {
 *----------------------------------*/
 add_theme_support( 'post-thumbnails' ); // アイキャッチ画像を有効化
 
-// トップページ記事一覧画像
-add_image_size( 'img330', 330, 186, false );
+// ブログ記事一覧画像
+add_image_size( 'imgBlog', 330, 186, false );
 // イベント情報一覧画像
-add_image_size( 'img192', 192, 108, true );
+add_image_size( 'imgLive', 260, 146, true );
 
 
 /*----------------------------------*
@@ -74,7 +74,7 @@ add_image_size( 'img192', 192, 108, true );
 function post_has_archive( $args, $post_type ) {
 	if ( 'post' == $post_type ) {
 		$args['rewrite'] = true;
-		$args['has_archive'] = 'blog'; //任意のスラッグ名
+		$args['has_archive'] = 'blog';
 	}
 	return $args;
 }

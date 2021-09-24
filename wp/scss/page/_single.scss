@@ -8,14 +8,13 @@
 .singlePage{
   width: 100%;
   max-width: 1110px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   padding: 0 20px;
 
   &_inner{
     display: flex;
     flex-wrap: nowrap;
     @include m.responsive(margin-top, 60px, 100px, 768px, 1094px);
-    @include m.responsive(margin-bottom, 40px, 100px, 768px, 1094px);
   }
 
   &_wrap{
@@ -97,10 +96,37 @@
 
 // ページャー
 .blog_pager{
-  margin-top: 30px;
-  color: s.$brown;
-  @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
-  font-weight: 700;
+  display: flex;
+  max-width: 240px;
+  margin: 30px auto 0;
+    &-pn{
+      padding: 0 1.5em;
+      color: s.$brown;
+      @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+      font-weight: 700;
+    }
+
+    &-prev{
+      position: relative;
+      &::before{
+        position: absolute;
+        content: "<";
+        top: 0;
+        left: 5px;
+        font-size: 1em;
+      }
+    }
+
+    &-next{
+      position: relative;
+      &::after{
+        position: absolute;
+        content: ">";
+        top: 0;
+        right: 5px;
+        font-size: 1em;
+      }
+    }
 }
 
 // コンサート情報投稿
