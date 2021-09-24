@@ -100,7 +100,7 @@ if( is_front_page() ) {
 }
 ?>
             <div class="inquiry_btn gnav-inquiry_btn">
-              <a href="/inquiry/" class="inquiry_button">お問い合わせ</a>
+              <a href="<?php echo esc_url(home_url('')); ?>/inquiry/" class="inquiry_button">お問い合わせ</a>
             </div><!-- /.inquiry_btn -->
           </nav><!-- /.gnav -->
 
@@ -153,6 +153,9 @@ if( is_front_page() ) {
   );
 }
 ?>
+            <div class="gnavSp-inquiry_btn">
+              <a href="<?php echo esc_url(home_url('')); ?>/inquiry/" class="inquiry_button">お問い合わせ</a>
+            </div>
           </nav>
         </div><!-- /.header_inner -->
       </header>

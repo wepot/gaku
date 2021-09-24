@@ -26,7 +26,7 @@ if( is_front_page() ) {
 ?>
             </div><!-- /.sp-none -->
             <div class="inquiry_btn fnav-inquiry_btn sp-none">
-              <a href="/inquiry/" class="inquiry_button">お問い合わせ</a>
+              <a href="<?php echo esc_url(home_url('')); ?>/inquiry/" class="inquiry_button">お問い合わせ</a>
             </div>
 
             <ul class="fnav-bottom">

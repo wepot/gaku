@@ -55,7 +55,7 @@
                 <h3 class="top-about_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/top-about.svg" width="396" height="95" alt="アンティークで落ち着いた大人の空間"></h3>
                 <p class="top-about_text">船橋市の住宅街の中にたたずむ小規模ホール樂～ＧＡＫＵ。透明感のあるドイツのピアノ”SEILER ザイラー”が完備されており、ご利用いただくことができます。まるで軽井沢の別荘のようなオシャレで大人な雰囲気が楽しめる館内で音楽のコンサートを開いてみてはいかがですか？コンサートの他にも個展や勉強会などレンタルスペースとして様々な用途で使うことも可能です。見学することも可能ですのでまずはお気軽にご連絡ください。</p><!-- /.top-about_text -->
                 <div class="cta_btn01 top-about_btn">
-                  <a href="/about/" class="button02">GAKUについて</a>
+                  <a href="<?php echo esc_url(home_url('')); ?>/about/" class="button02">GAKUについて</a>
                 </div>
               </div><!-- /.top-about_body -->
             </div><!-- /.top-about_wrap -->
@@ -71,42 +71,38 @@
               <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/blog.svg" width="257" height="101" alt="BLOG"></h2>
             </header><!-- /.section_headding -->
             <article class="blogCards top-blogCards">
-              <article class="blogCards_item">
-                <a class="blogCard" href="/blog/single/">
-                  <figure class="blogCard_img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/common/img/blog/blog-img01.jpg" width="330" height="186" alt="">
-                  </figure>
-                  <div class="blogCard_body">
-                    <p class="blogCard_date"><time datetime="">MMMM.YY.DD</time></p>
-                    <p class="blogCard_text">来週月曜日開催の珈琲とpiano。お陰様で満席となりました。‥</p>
-                  </div>
-                </a>
-              </article>
-              <article class="blogCards_item">
-                <a class="blogCard" href="/blog/single/">
-                  <figure class="blogCard_img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/common/img/blog/blog-img02.jpg" width="330" height="186" alt="">
-                  </figure>
-                  <div class="blogCard_body">
-                    <p class="blogCard_date"><time datetime="">MMMM.YY.DD</time></p>
-                    <p class="blogCard_text">この夏に十周年を迎えようとしています。 さて、どうしまし‥</p>
-                  </div>
-                </a>
-              </article>
-              <article class="blogCards_item">
-                <a class="blogCard" href="/blog/single/">
-                  <figure class="blogCard_img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/common/img/blog/blog-img03.jpg" width="330" height="186" alt="">
-                  </figure>
-                  <div class="blogCard_body">
-                    <p class="blogCard_date"><time datetime="">MMMM.YY.DD</time></p>
-                    <p class="blogCard_text">2021.4.18に当サロンで行われた 『白石准作品集　大山大輔さん、楠‥</p>
-                  </div>
-                </a>
-              </article>
+<?php
+$args = array(
+'posts_per_page' => 3 // 表示件数
+);
+$posts = get_posts( $args );
+foreach ( $posts as $post ): // ループの開始
+setup_postdata( $post ); // 記事データの取得
+?>
+                <article class="blogCards_item">
+                  <a class="blogCard" href="<?php the_permalink(); ?>">
+                    <figure class="blogCard_img">
+<?php
+if (has_post_thumbnail() ) {
+  the_post_thumbnail('img330');
+} else {
+  echo '<img src="' . esc_url(get_template_directory_uri()) . '/common/img/blog/blog-img01.jpg" alt="" width="330" height="186">';
+}
+?>
+                    </figure>
+                    <div class="blogCard_body">
+                      <p class="blogCard_date"><time datetime="<?php the_time('Y.m.d'); ?>"><?php the_time('Y.m.d'); ?></time></p>
+                      <p class="blogCard_text"><?php the_excerpt(); ?></p>
+                    </div>
+                  </a>
+                </article><!-- /.blogCards_item -->
+<?php 
+endforeach;
+wp_reset_postdata();
+?>
             </article><!-- /.blogCards -->
             <div class="cta_btn01 top-blogCards_btn">
-              <a href="/blog/" class="button01">ブログ一覧</a>
+              <a href="<?php echo esc_url(home_url('')); ?>/blog/" class="button01">ブログ一覧</a>
             </div>
           </div><!-- /.section_inner -->
         </section><!-- /.top-blog -->
@@ -117,7 +113,25 @@
               <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/live.svg" width="257" height="101" alt="コンサート情報"></h2>
             </header><!-- /.section_headding -->
             <article class="liveMedia top-liveMedia">
-              <article class="liveMedia_item">
+<?php
+$args = array(
+  'post_type' => 'live', //カスタム投稿タイプを指定
+  'posts_per_page' => 3, //表示する記事数
+);
+$live_query = new WP_Query( $args ); //サブループを変数に格納
+if ( $live_query->have_posts() ) : 
+  while ( $live_query->have_posts() ) : 
+    $live_query->the_post(); 
+?>
+
+<?php get_template_part( 'parts/content-archiveLive' );?>
+
+<?php
+  endwhile;
+endif;
+wp_reset_postdata();
+?>
+              <!-- <article class="liveMedia_item">
                 <a class="liveMedia_wrap" href="/live/single/">
                   <figure class="liveMedia_img">
                     <img src="<?php echo get_template_directory_uri(); ?>/common/img/live/live-img01.jpg" width="260" height="146" alt="">
@@ -127,7 +141,7 @@
                     <p class="liveMedia_text">NEWSのテキストが入りますNEWSのテキストが入ります</p>
                   </div>
                 </a>
-              </article><!-- /.liveMedia_item -->
+              </article>
               <article class="liveMedia_item">
                 <a class="liveMedia_wrap" href="/live/single/">
                   <figure class="liveMedia_img">
@@ -138,7 +152,7 @@
                     <p class="liveMedia_text">NEWSのテキストが入りますNEWSのテキストが入ります</p>
                   </div>
                 </a>
-              </article><!-- /.liveMedia_item -->
+              </article>
               <article class="liveMedia_item">
                 <a class="liveMedia_wrap" href="/live/single/">
                   <figure class="liveMedia_img">
@@ -149,10 +163,10 @@
                     <p class="liveMedia_text">1NEWSのテキストが入りますNEWSのテキストが入ります</p>
                   </div>
                 </a>
-              </article><!-- /.liveMedia_item -->
+              </article> -->
             </article><!-- /.liveMedia -->
             <div class="cta_btn02 top-liveMedia_btn">
-              <a href="/live/" class="button01">コンサート情報一覧</a>
+              <a href="<?php echo esc_url(home_url('')); ?>/live/" class="button01">コンサート情報一覧</a>
             </div>
             <div class="google-calender">
               <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FTokyo&src=Z2FrdS5waWFub0BnbWFpbC5jb20&src=cG9kbWM5c2Vxb3JzbTViNnZtZGZwbWloZThAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23F4511E&color=%23616161" style="border:solid 1px #777" width="1094" height="448" frameborder="0" scrolling="no" class="google-calender_iframe"></iframe>
@@ -215,41 +229,12 @@
               </tbody>
             </table>
             <div class="cta_btn02 access_btn">
-              <a href="/inquiry/" class="button01">Webからのご予約</a>
+              <a href="<?php echo esc_url(home_url('')); ?>/inquiry/" class="button01">Webからのご予約</a>
             </div>
           </div><!-- /.section_inner -->
         </section><!-- /.access -->
 
-        <section class="contactBox">
-          <div class="contactBox_wrap">
-            <ul class="contactBox_list">
-              <li class="contactBox_item">
-                <a href="/live/">
-                  <figure class="contactBox_img01">
-                    <img src="<?php echo get_template_directory_uri(); ?>/common/img/icon/live.png" width="45" height="46" alt="">
-                  </figure>
-                  <p class="contactBox_text">コンサート<br>情報一覧</p>
-                </a>
-              </li><!-- /.contactBox_item -->
-              <li class="contactBox_item">
-                <a href="/blog/">
-                  <figure class="contactBox_img02">
-                    <img src="<?php echo get_template_directory_uri(); ?>/common/img/icon/blog.png" width="58" height="49" alt="">
-                  </figure>
-                  <p class="contactBox_text contactBox_text02">Blog一覧</p>
-                </a>
-              </li><!-- /.contactBox_item -->
-              <li class="contactBox_item">
-                <a href="/inquiry/">
-                  <figure class="contactBox_img03">
-                    <img src="<?php echo get_template_directory_uri(); ?>/common/img/icon/mail.png" width="58" height="40" alt="">
-                  </figure>
-                  <p class="contactBox_text contactBox_text02">お問い合わせ</p>
-                </a>
-              </li><!-- /.contactBox_item -->
-            </ul><!-- /.contactBox_list -->
-          </div><!-- /.contactBox_wrap -->
-        </section><!-- /.contactBox -->
+<?php get_template_part( 'parts/contactBox' );?>
       </main>
 
 <?php get_footer(); ?>

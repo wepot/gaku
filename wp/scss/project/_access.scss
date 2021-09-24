@@ -63,8 +63,8 @@
   }
   @include m.responsive(margin-bottom, 40px, 60px, 768px, 1094px);
     @include m.mq(md) {
-      margin-top: -80px;
-      padding-top: 80px;
+      margin-top: -40px;
+      padding-top: 40px;
     }
 
   &_inner{

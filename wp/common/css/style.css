@@ -398,12 +398,12 @@ SP版：メニューリスト
   opacity: .8;
 }
 
-.sideMenu_archiveitem {
+.sideMenu .wp-block-archives li {
   padding: 0 22px;
   line-height: 2.25;
 }
 
-.sideMenu_archiveitem a {
+.sideMenu .wp-block-archives li a {
   position: relative;
   display: inline-block;
   padding-left: 22px;
@@ -411,7 +411,7 @@ SP版：メニューリスト
   font-weight: 500;
 }
 
-.sideMenu_archiveitem a::before {
+.sideMenu .wp-block-archives li a::before {
   position: absolute;
   content: "";
   top: 50%;
@@ -423,7 +423,7 @@ SP版：メニューリスト
   transform: translateY(-50%) rotate(45deg);
 }
 
-.sideMenu_archiveitem a:hover {
+.sideMenu .wp-block-archives li a:hover {
   opacity: .8;
 }
 
@@ -1581,7 +1581,7 @@ GAKUについて
 .sec-guide01 {
   width: 100%;
   max-width: 580px;
-  margin: 0 auto 50px;
+  margin: 0 auto 70px;
   padding: 0 20px;
 }
 
@@ -2656,7 +2656,7 @@ swiper
   }
 
   .class {
-    margin-top: calc(40px + 0.1226993865 * (100vw - 768px));
+    margin-top: calc(40px + 0.0613496933 * (100vw - 768px));
   }
 
   .sec-guide04 {
@@ -2833,7 +2833,7 @@ swiper
   }
 
   .class {
-    margin-top: 80px;
+    margin-top: 60px;
   }
 
   .sec-guide04 {
@@ -3144,8 +3144,8 @@ swiper
   }
 
   .access {
-    margin-top: -80px;
-    padding-top: 80px;
+    margin-top: -40px;
+    padding-top: 40px;
   }
 
   .access-table {

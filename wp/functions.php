@@ -62,7 +62,9 @@ function my_css_attributes_filter($var) {
 add_theme_support( 'post-thumbnails' ); // アイキャッチ画像を有効化
 
 // トップページ記事一覧画像
-add_image_size( 'blog', 285, 195, true );
+add_image_size( 'img330', 330, 186, false );
+// イベント情報一覧画像
+add_image_size( 'img192', 192, 108, true );
 
 
 /*----------------------------------*
@@ -77,6 +79,36 @@ function post_has_archive( $args, $post_type ) {
 	return $args;
 }
 add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
+
+/*----------------------------------*
+* 抜粋文 文字数・末尾変更
+*----------------------------------*/
+function custom_excerpt_length() {
+  return 35;	//表示したい文字数
+}	
+add_filter( 'excerpt_length', 'custom_excerpt_length' );
+
+function custom_excerpt_more() {
+	return '...'; //変更後の内容
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
+
+
+/*----------------------------------*
+* サイドバーにウィジェット追加
+*----------------------------------*/
+function widgetarea_init()
+{
+    register_sidebar(array(
+        'name' => 'サイドバー',
+        'id' => 'side-widget',
+        'before_widget' => '<div class="sideMenu_wrap"><div class="sideMenu_list">',
+        'after_widget' => '</div></div>',
+        'before_title' => '<h3 class="sideMenu_title">',
+        'after_title' => '</h3>'
+    ));
+}
+add_action('widgets_init', 'widgetarea_init');
 
 /*----------------------------------*
 * 管理バー非表示

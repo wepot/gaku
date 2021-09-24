@@ -125,35 +125,6 @@
               <p class="guide_caption">※お申込者都合によるキャンセルの場合、予約金はご返金できません。</p>
             </div><!-- /.guideNum_wrap -->
           </section><!-- /.sec-guide05 -->
-          <section class="contactBox">
-            <div class="contactBox_wrap">
-              <ul class="contactBox_list">
-                <li class="contactBox_item">
-                  <a href="/live/">
-                    <figure class="contactBox_img01">
-                      <img src="<?php echo get_template_directory_uri(); ?>/common/img/icon/live.png" width="45" height="46" alt="">
-                    </figure>
-                    <p class="contactBox_text">コンサート<br>情報一覧</p>
-                  </a>
-                </li><!-- /.contactBox_item -->
-                <li class="contactBox_item">
-                  <a href="/blog/">
-                    <figure class="contactBox_img02">
-                      <img src="<?php echo get_template_directory_uri(); ?>/common/img/icon/blog.png" width="58" height="49" alt="">
-                    </figure>
-                    <p class="contactBox_text contactBox_text02">Blog一覧</p>
-                  </a>
-                </li><!-- /.contactBox_item -->
-                <li class="contactBox_item">
-                  <a href="/inquiry/">
-                    <figure class="contactBox_img03">
-                      <img src="<?php echo get_template_directory_uri(); ?>/common/img/icon/mail.png" width="58" height="40" alt="">
-                    </figure>
-                    <p class="contactBox_text contactBox_text02">お問い合わせ</p>
-                  </a>
-                </li><!-- /.contactBox_item -->
-              </ul><!-- /.contactBox_list -->
-            </div><!-- /.contactBox_wrap -->
-          </section><!-- /.contactBox -->
+<?php get_template_part( 'parts/contactBox' );?>
       </main>
 <?php get_footer(); ?>
