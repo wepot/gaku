@@ -546,12 +546,11 @@ SP版：メニューリスト
   color: #191919;
 }
 
-/*! ====== ボタン共通 ====== */
+/*! ====== お問い合わせフォームボタン ====== */
 
 .submit_button {
   display: block;
-  width: 150px;
-  margin: 0 auto;
+  width: 100%;
   padding: 6px;
   border: transparent;
   border-radius: 30px;
@@ -1347,6 +1346,7 @@ BLOGページ
 .blog_pager-next {
   position: relative;
   margin-left: auto;
+  text-align: right;
 }
 
 .blog_pager-next::after {
@@ -1861,48 +1861,24 @@ GAKUについて
 ==================================== */
 
 .sec-inquiry01 {
-  margin: 0 auto 63px;
+  margin: 0 auto 70px;
   padding: 0 20px;
 }
 
 .sec-inquiry01_text {
-  margin-top: 50px;
-  margin-bottom: 40px;
   margin-top: 30px;
-  margin-bottom: 25px;
   font-size: .875rem;
   text-align: center;
 }
 
-.sec-inquiry01_tel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 298px;
-  height: 115px;
-  width: 259px;
-  height: 102px;
-  margin: 0 auto;
-  background: url(../img/icon/box.png) center/100% no-repeat;
-  font-size: .875rem;
-  font-weight: 500;
-}
-
-.sec-inquiry01_tel span {
-  font-size: 1.5rem;
-  font-weight: 700;
-  line-height: 1.8;
-}
-
 .sec-inquiry02 {
   margin-bottom: 80px;
-  padding: 0 20px;
 }
 
 .sec-inquiry02_wrap {
-  max-width: 630px;
+  max-width: 700px;
   margin: 60px auto 90px;
+  padding: 0 20px;
 }
 
 .sec-inquiry02_list {
@@ -1931,18 +1907,19 @@ GAKUについて
 
 .inquiryForm {
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 840px;
+  margin: 0 auto 80px;
+}
+
+.mw_wp_form {
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
 }
 
 .input-box {
   margin-bottom: 50px;
-}
-
-.input-box_caption {
-  margin-top: 15px;
-  font-size: .875rem;
-  font-weight: 500;
 }
 
 .label-area {
@@ -2011,25 +1988,32 @@ GAKUについて
   background: #aa855b;
 }
 
-.radio_list {
+.mwform-tel-field .input-tel {
+  width: 140px !important;
+}
+
+.radioBox p {
+  margin-top: 15px;
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+.radioBox .radio_list {
   display: flex;
 }
 
-.radio_item {
+.horizontal-item {
   margin-right: 40px;
+  cursor: pointer;
 }
 
-.radio_item:last-child {
-  margin-right: 0;
-}
-
-.radio-area {
+.horizontal-item label {
   display: inline-flex;
   align-items: center;
   cursor: pointer;
 }
 
-.radio-area_input {
+.radio_list .radio-area_input {
   position: absolute;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -2043,86 +2027,149 @@ GAKUについて
   white-space: nowrap;
 }
 
-.radio-area_icon {
+.mwform-radio-field-text {
   position: relative;
   display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  padding: 1px;
+  padding-left: 40px;
+  color: #aa855b;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  transition: color .3s;
 }
 
-.radio-area_icon::before,
-.radio-area_icon::after {
+.radio-area_input:checked~.mwform-radio-field-text {
+  color: #fff;
+}
+
+.radio-area_input.focus-visible~.mwform-radio-field-text {
+  color: #fff;
+}
+
+.mwform-radio-field-text::before,
+.mwform-radio-field-text::after {
   position: absolute;
   content: "";
 }
 
-.radio-area_icon::before {
+.mwform-radio-field-text::before {
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 1px;
   border: 2px solid #aa855b;
   border-radius: 50%;
   background-color: #500808;
   transition: background-color .3s;
 }
 
-.radio-area_input:checked+.radio-area_icon::before {
+.radio-area_input:checked+.mwform-radio-field-text::before {
   border: 2px solid #fff;
   pointer-events: none;
 }
 
-.radio-area_icon::after {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1em;
-  height: 1em;
+.mwform-radio-field-text::after {
+  top: 6px;
+  left: 6px;
+  width: .9em;
+  height: .9em;
   border-radius: 50%;
   opacity: 0;
   transition: opacity .3s;
 }
 
-.radio-area_input:checked+.radio-area_icon::after {
+.radio-area_input:checked+.mwform-radio-field-text::after {
   background-color: #aa855b;
   opacity: 1;
 }
 
-.radio-area_text {
+.action-box {
+  width: 180px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mw_wp_form .error {
   position: relative;
-  display: inline-block;
+  padding-left: 1.2em;
+  color: #aa855b !important;
+  font-weight: 500;
+}
+
+.mw_wp_form .error::before {
+  position: absolute;
+  content: "※";
+  top: 0;
+  left: 0;
+  font-size: 1em;
+}
+
+.inqform_heading {
+  margin: 20px 0;
+}
+
+.inqform_heading h2 {
+  color: #aa855b;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.mw_wp_form_confirm .input-area {
+  min-height: 50px;
+  padding: .7em;
+  background-color: #e3e3e3;
+  box-shadow: 0px 0px 5px inset;
+  color: #191919;
+  font-size: 20px;
+}
+
+.mw_wp_form_confirm .label-area span {
+  display: none;
+}
+
+.mw_wp_form_confirm .radio_list {
+  margin-left: 0;
+  padding: .7em;
+  background-color: #e3e3e3;
+  box-shadow: 0px 0px 5px inset;
+  color: #191919;
+  font-size: 20px;
+}
+
+.mw_wp_form_confirm .radioBox p {
+  display: none;
+}
+
+.mw_wp_form_confirm .prev_btn {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border-radius: 0;
+  display: block;
+  margin: 10px auto 0;
+  padding: .32em;
+  border: none;
+  background-color: initial;
   color: #aa855b;
   font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: .01em;
-  transition: color .3s;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: underline;
+  letter-spacing: .05em;
+  cursor: pointer;
 }
 
-.radio-area_input:checked~.radio-area_text {
-  color: #fff;
+.mw_wp_form_complete .sent_text {
+  margin: 20px auto 0;
+  font-size: .875rem;
 }
 
-.radio-area_input.focus-visible~.radio-area_text {
-  color: #fff;
-}
-
-.radio-area_text::after {
-  position: absolute;
-  content: "";
-  display: inline-block;
-  bottom: -2px;
-  left: 0;
-  transform: scale3d(0, 1, 1);
-  transform-origin: right;
-  width: 100%;
-  height: 2px;
-  background-color: #fff;
-  transition: transform .3s;
-}
-
-.radio-area_icon+.radio-area_text {
-  margin-left: .5em;
+.mw_wp_form_send_error {
+  text-align: center;
 }
 
 /*! ===================================
@@ -2375,10 +2422,6 @@ swiper
     font-size: calc(0.875rem + 0.0061349693 * (100vw - 48rem));
   }
 
-  .input-box_caption {
-    font-size: calc(0.875rem + 0.0061349693 * (100vw - 48rem));
-  }
-
   .label-area {
     font-size: calc(0.875rem + 0.018404908 * (100vw - 48rem));
   }
@@ -2387,8 +2430,16 @@ swiper
     font-size: calc(0.875rem + 0.018404908 * (100vw - 48rem));
   }
 
-  .radio-area_text {
+  .radioBox p {
+    font-size: calc(0.875rem + 0.0061349693 * (100vw - 48rem));
+  }
+
+  .mw_wp_form_confirm .prev_btn {
     font-size: calc(1rem + 0.0122699387 * (100vw - 48rem));
+  }
+
+  .mw_wp_form_complete .sent_text {
+    font-size: calc(0.875rem + 0.0061349693 * (100vw - 48rem));
   }
 
   .notFound_text {
@@ -2521,10 +2572,6 @@ swiper
     font-size: 1rem;
   }
 
-  .input-box_caption {
-    font-size: 1rem;
-  }
-
   .label-area {
     font-size: 1.25rem;
   }
@@ -2533,8 +2580,16 @@ swiper
     font-size: 1.25rem;
   }
 
-  .radio-area_text {
+  .radioBox p {
+    font-size: 1rem;
+  }
+
+  .mw_wp_form_confirm .prev_btn {
     font-size: 1.25rem;
+  }
+
+  .mw_wp_form_complete .sent_text {
+    font-size: 1rem;
   }
 
   .notFound_text {
@@ -2710,18 +2765,6 @@ swiper
     margin-top: calc(30px + 0.0613496933 * (100vw - 768px));
   }
 
-  .sec-inquiry01_text {
-    margin-bottom: calc(25px + 0.0460122699 * (100vw - 768px));
-  }
-
-  .sec-inquiry01_tel {
-    width: calc(259px + 0.1196319018 * (100vw - 768px));
-  }
-
-  .sec-inquiry01_tel {
-    height: calc(102px + 0.0398773006 * (100vw - 768px));
-  }
-
   .topSwiper {
     margin-bottom: calc(30px + 0.0920245399 * (100vw - 768px));
   }
@@ -2881,18 +2924,6 @@ swiper
 
   .sec-inquiry01_text {
     margin-top: 50px;
-  }
-
-  .sec-inquiry01_text {
-    margin-bottom: 40px;
-  }
-
-  .sec-inquiry01_tel {
-    width: 298px;
-  }
-
-  .sec-inquiry01_tel {
-    height: 115px;
   }
 
   .topSwiper {
@@ -3219,6 +3250,10 @@ swiper
     text-align: left;
   }
 
+  .blog_pager {
+    max-width: 210px;
+  }
+
   .top-news {
     margin-bottom: 120px;
   }
@@ -3311,10 +3346,6 @@ swiper
     max-width: 520px;
   }
 
-  .sec-inquiry01 {
-    margin-bottom: 50px;
-  }
-
   .sec-inquiry02 {
     margin-bottom: 50px;
   }
@@ -3359,6 +3390,38 @@ swiper
 
   .message::-webkit-scrollbar {
     width: 8px;
+  }
+
+  .horizontal-item {
+    margin-right: 20px;
+  }
+
+  .mwform-radio-field-text {
+    padding-left: 30px;
+    font-size: 1rem;
+  }
+
+  .mwform-radio-field-text::after {
+    top: 4px;
+    left: 4px;
+    width: 1em;
+    height: 1em;
+  }
+
+  .inqform_heading h2 {
+    font-size: 1.125rem;
+  }
+
+  .mw_wp_form_confirm .input-area {
+    font-size: 16px;
+  }
+
+  .mw_wp_form_confirm .radio_list {
+    font-size: 16px;
+  }
+
+  .mw_wp_form_complete .sent_text {
+    margin-top: 15px;
   }
 
   .notFound {
@@ -3492,19 +3555,20 @@ swiper
     margin-bottom: 40px;
   }
 
-  .input-box_caption {
-    text-align: center;
+  .mwform-tel-field .input-tel {
+    width: 83px !important;
   }
 
-  .radio_list {
+  .radioBox .radio_list {
     flex-direction: column;
-    max-width: 170px;
-    margin: 0 auto;
   }
 
-  .radio_item {
-    margin-top: 20px;
-    margin-right: 0;
+  .horizontal-item {
+    margin: 20px 0 0 10px;
+  }
+
+  .horizontal-item:first-child {
+    margin-top: 0;
   }
 
   .aboutSwiper-slide {
@@ -3563,13 +3627,8 @@ swiper
 }
 
 @media (hover) {
-  .radio-area_text:hover {
+  .mwform-radio-field-text:hover {
     color: #fff;
-  }
-
-  .radio-area:hover .radio-area_text::after {
-    transform: scale3d(1, 1, 1);
-    transform-origin: left;
   }
 }
 /*# sourceMappingURL=map/style.css.map */

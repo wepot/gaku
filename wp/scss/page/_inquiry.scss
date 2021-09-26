@@ -6,55 +6,27 @@
 ご予約・お問い合わせ
 ==================================== */
 .sec-inquiry01{
-  margin: 0 auto 63px;
+  margin: 0 auto 70px;
   padding: 0 20px;
-    @include m.mq(md) {
-      margin-bottom: 50px;
-    }
 
   &_text{
-    margin-top: 50px;
-    margin-bottom: 40px;
     @include m.responsive(margin-top, 30px, 50px, 768px, 1094px);
-    @include m.responsive(margin-bottom, 25px, 40px, 768px, 1094px);
     @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
     text-align: center;
   }
-
-  &_tel{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 298px;
-    height: 115px;
-    @include m.responsive(width, 259px, 298px, 768px, 1094px);
-    @include m.responsive(height, 102px, 115px, 768px, 1094px);
-    margin: 0 auto;
-    background: url(../img/icon/box.png) center/100% no-repeat;
-    font-size: s.rem(14px);
-    font-weight: 500;
-
-      span{
-        font-size: s.rem(24px);
-        font-weight: 700;
-        line-height: 1.8;
-      }
-  }
 }
-
 
 // お申し込みについて
 .sec-inquiry02{
   margin-bottom: 80px;
-  padding: 0 20px;
     @include m.mq(md) {
       margin-bottom: 50px;
     }
 
   &_wrap{
-    max-width: 630px;
+    max-width: 700px;
     margin: 60px auto 90px;
+    padding: 0 20px;
       @include m.mq(md) {
         max-width: 580px;
         margin-top: 20px;
@@ -92,8 +64,15 @@
 // /*-------- フォーム --------*/
 .inquiryForm{
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 840px;
+  margin: 0 auto 80px;
+}
+
+.mw_wp_form {
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
 }
 
 .input-box {
@@ -101,15 +80,6 @@
     @include m.mq(md) {
       margin-bottom: 30px;
     }
-
-  &_caption{
-    margin-top: 15px;
-    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
-    font-weight: 500;
-      @include m.mq(sm) {
-        text-align: center;
-      }
-  }
 }
 
 // 項目名
@@ -187,34 +157,50 @@
   }
 }
 
-/*-------- ラジオボタン --------*/
-.radio_list{
-  display: flex;
-  @include m.mq(sm) {
-    flex-direction: column;
-    max-width: 170px;
-    margin: 0 auto;
-  }
-}
-
-.radio_item{
-  margin-right: 40px;
-    &:last-child{
-      margin-right: 0;
-    }
+// 電話番号入力ボックス
+.mwform-tel-field .input-tel{
+  width: 140px!important;
     @include m.mq(sm) {
-      margin-top: 20px;
-      margin-right: 0;
+      width: 83px!important;
     }
 }
 
-.radio-area {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
+/*-------- ラジオボタン --------*/
+.radioBox p{
+  margin-top: 15px;
+  @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+  font-weight: 500;
 }
 
-.radio-area_input {
+.radioBox .radio_list{
+  display: flex;
+    @include m.mq(sm) {
+      flex-direction: column;
+    }
+}
+
+.horizontal-item{
+  margin-right: 40px;
+  cursor: pointer;
+    @include m.mq(md) {
+      margin-right: 20px;
+    }
+
+    @include m.mq(sm) {
+      margin: 20px 0 0 10px;
+        &:first-child{
+          margin-top: 0;
+        }
+    }
+  
+    label{
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+}
+
+.radio_list .radio-area_input {
   position: absolute;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -227,12 +213,37 @@
   white-space: nowrap;
 }
 
-.radio-area_icon {
+.mwform-radio-field-text {
   position: relative;
   display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  padding: 1px;
+  padding-left: 40px;
+  color: s.$brown;
+  font-size: s.rem(20px);
+  font-weight: 700;
+  letter-spacing: .01em;
+  transition: color .3s;
+    @include m.mq(md) {
+      padding-left: 30px;
+      font-size: s.rem(16px);
+    }
+
+    @mixin isActive {
+      color: s.$white;
+    }
+    
+    .radio-area_input:checked ~ & {
+      @include isActive;
+    }
+    
+    .radio-area_input.focus-visible ~ & {
+      @include isActive;
+    }
+
+    @media(hover) {
+      &:hover {
+        @include isActive;
+      }
+    }
 
   &::before,
   &::after {
@@ -243,8 +254,9 @@
   &::before {
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 1.5em;
+    height: 1.5em;
+    padding: 1px;
     border: 2px solid s.$brown;
     border-radius: 50%;
     background-color: s.$red;
@@ -257,14 +269,19 @@
   }
 
   &::after {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 1em;
-    height: 1em;
+    top: 6px;
+    left: 6px;
+    width: .9em;
+    height: .9em;
     border-radius: 50%;
     opacity: 0;
     transition: opacity .3s;
+      @include m.mq(md) {
+        top: 4px;
+        left: 4px;
+        width: 1em;
+        height: 1em;
+      }
 
     .radio-area_input:checked + & {
       background-color: s.$brown;
@@ -273,60 +290,107 @@
   }
 }
 
-.radio-area_text {
+/*-------- 送信ボタン --------*/
+.action-box{
+  width: 180px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/*-------- アラート文 --------*/
+.mw_wp_form .error{
   position: relative;
-  display: inline-block;
-  color: s.$brown;
-  @include m.responsive(font-size, 1rem, 1.25rem, 48rem, 68.375rem);
-  font-weight: 700;
-  letter-spacing: .01em;
-  transition: color .3s;
-  
-  @mixin isActive {
-    color: s.$white;
-  }
-  
-  .radio-area_input:checked ~ & {
-    @include isActive;
-  }
-  
-  .radio-area_input.focus-visible ~ & {
-    @include isActive;
-  }
-
-  @media(hover) {
-    &:hover {
-      @include isActive;
+  padding-left: 1.2em;
+  color: s.$brown!important;
+  font-weight: 500;
+    &::before{
+      position: absolute;
+      content: "※";
+      top: 0;
+      left: 0;
+      font-size: 1em;
     }
-  }
+}
 
-  &::after {
-    position: absolute;
-    content: '';
-    display: inline-block;
-    bottom: -2px;
-    left: 0;
-    transform: scale3d(0, 1, 1);
-    transform-origin: right;
-    width: 100%;
-    height: 2px;
-    background-color: s.$white;
-    transition: transform .3s;
-    
-    @mixin isActive {
-      transform: scale3d(1, 1, 1);
-      transform-origin: left;
+/*-------- 確認画面 --------*/
+.inqform_heading{
+  margin: 20px 0;
+    h2{
+      color: s.$brown;
+      font-size: s.rem(20px);
+      font-weight: 700;
+      text-align: center;
+        @include m.mq(md) {
+          font-size: s.rem(18px);
+        }
     }
+}
 
-    
-    @media(hover) {
-      .radio-area:hover & {
-        @include isActive;
+.mw_wp_form_confirm{
+  .input-area{
+    min-height: 50px;
+    padding: .7em;
+    background-color: #e3e3e3;
+    box-shadow: 0px 0px 5px inset;
+    color: s.$black;
+    font-size: 20px;
+      @include m.mq(md) {
+        font-size: 16px;
       }
-    }
   }
 
-  .radio-area_icon + & {
-    margin-left: .5em;
+  .label-area span{
+    display: none;
   }
+
+  .radio_list{
+    margin-left: 0;
+    padding: .7em;
+    background-color: #e3e3e3;
+    box-shadow: 0px 0px 5px inset;
+    color: s.$black;
+    font-size: 20px;
+      @include m.mq(md) {
+        font-size: 16px;
+      }
+  }
+
+  .radioBox p{
+    display: none;
+  }
+
+  .prev_btn{
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border-radius: 0;
+    display: block;
+    margin: 10px auto 0;
+    padding: .32em;
+    border: none;
+    background-color: initial;
+    color: s.$brown;
+    @include m.responsive(font-size, 1rem, 1.25rem, 48rem, 68.375rem);
+    font-weight: 500;
+    text-align: center;
+    text-decoration: underline;
+    letter-spacing: .05em;
+    cursor: pointer;
+  }
+}
+
+/*-------- 送信完了 --------*/
+.mw_wp_form_complete .sent_text{
+  margin: 20px auto 0;
+  @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    @include m.mq(md) {
+      margin-top: 15px;
+    }
+}
+
+// エラーメッセージ
+.mw_wp_form_send_error{
+  text-align: center;
 }

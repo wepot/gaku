@@ -2,11 +2,12 @@
 
       <main class="main-contents">
 <?php get_template_part( 'parts/breadcrumb' );?>
+
         <article class="blogPage">
           <div class="blogPage_inner">
             <header class="section_heading">
               <h1 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/blog.svg" width="257" height="101" alt="BLOG"></h1>
-            </header><!-- /.section_headding -->
+            </header><!-- /.section_heading -->
             <article class="blogCards blogPage-cards">
 <?php
 if ( have_posts() ):

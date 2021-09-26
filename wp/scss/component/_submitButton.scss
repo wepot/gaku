@@ -2,11 +2,10 @@
 @use "../setting/" as s;
 @use "../mixin/" as m;
 
-/*! ====== ボタン共通 ====== */
+/*! ====== お問い合わせフォームボタン ====== */
 .submit_button{
   display: block;
-  width: 150px;
-  margin: 0 auto;
+  width: 100%;
   padding: 6px;
   border: transparent;
   border-radius: 30px;

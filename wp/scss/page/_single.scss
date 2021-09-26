@@ -109,6 +109,10 @@
   display: flex;
   max-width: 240px;
   margin: 30px auto 0;
+    @include m.mq(md) {
+      max-width: 210px;
+    }
+
     &-pn{
       width: 50%;
       padding: 0 1.5em;
@@ -132,6 +136,7 @@
     &-next{
       position: relative;
       margin-left: auto;
+      text-align: right;
       &::after{
         position: absolute;
         content: ">";
