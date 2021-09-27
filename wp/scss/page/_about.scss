@@ -27,10 +27,10 @@ GAKUについて
   }
 
   &_text {
-    @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+    @include m.responsive(font-size, .9375rem, 1rem, 48rem, 68.375rem);
     text-align: center;
     line-height: 2.25;
-    letter-spacing: .04em;
+    letter-spacing: .05em;
   }
 }
 

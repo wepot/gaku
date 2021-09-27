@@ -56,7 +56,7 @@ if( is_front_page() ) {
                 </a>
               </li>
               <li class="fnav-sns">
-                <a href="" target="_blank" rel="noopener noreferrer">
+                <a href="https://twitter.com/doraantiquecafe" target="_blank" rel="noopener noreferrer">
                   <img src="<?php echo get_template_directory_uri(); ?>/common/img/icon/twitter.png" width="40" height="40" alt="Twitter">
                 </a>
               </li>
