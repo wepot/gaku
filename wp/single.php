@@ -5,7 +5,7 @@
         <section class="singlePage">
           <header class="section_heading">
             <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/blog.svg" width="257" height="101" alt="BLOG"></h2>
-          </header><!-- /.section_headding -->
+          </header><!-- /.section_heading -->
           <div class="singlePage_inner">
 <?php
 if( have_posts() ):
@@ -17,10 +17,6 @@ if( have_posts() ):
                   <h1><?php the_title(); ?></h1>
                 </header><!-- /.blog_header -->
                 <?php the_content(); ?>
-                <div class="blog-address">
-                  <p class="blog-address01">コンサート・ピアノサロン<br>樂～ＧＡＫＵ<br>〒274-0815<br>千葉県船橋市西習志野4-2-1<br>電話番号：090-4200-8819<br>メールアドレス：dora_antiquecafe@yahoo.co.jp</p>
-                  <p class="blog-address02">Facebookはこちら<br><a href="http://bit.ly/29rF7u5" target="_blank" rel="noopener noreferrer" class="blog-address02_link">http://bit.ly/29rF7u5</a></p>
-                </div><!-- /.blog-address -->
                 <div class="blog-meta">
                   <p class="blog-meta_tag">テーマ：<?php $postcat = get_the_category();
   echo $postcat[0]->name; ?></p>

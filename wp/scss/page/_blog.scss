@@ -21,3 +21,14 @@ BLOGページ
     margin-bottom: 35px;
   }
 }
+
+.blogcat_title{
+  margin-top: 20px;
+  color: s.$brown;
+  font-size: s.rem(24px);
+  font-weight: 500;
+  text-align: center;
+    @include m.mq(md) {
+      font-size: s.rem(20px);
+    }
+}

@@ -749,8 +749,8 @@ SP版：メニューリスト
 
 .breadcrumb-area {
   width: 100%;
-  max-width: 1134px;
-  margin: 20px auto;
+  max-width: 1120px;
+  margin: 20px auto 40px;
   padding: 0 20px;
   color: #aa855b;
   font-size: .875rem;
@@ -1233,6 +1233,14 @@ BLOGページ
   margin-bottom: 35px;
 }
 
+.blogcat_title {
+  margin-top: 20px;
+  color: #aa855b;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
 /*! ===================================
 記事詳細ページ
 ==================================== */
@@ -1572,10 +1580,10 @@ GAKUについて
 }
 
 .sec-about01_text {
-  font-size: .875rem;
+  font-size: .9375rem;
   text-align: center;
   line-height: 2.25;
-  letter-spacing: .04em;
+  letter-spacing: .05em;
 }
 
 .sec-about02 {
@@ -2363,7 +2371,7 @@ swiper
   }
 
   .sec-about01_text {
-    font-size: calc(0.875rem + 0.0061349693 * (100vw - 48rem));
+    font-size: calc(0.9375rem + 0.0030674847 * (100vw - 48rem));
   }
 
   .guide_caption {
@@ -3223,6 +3231,10 @@ swiper
   .access-table td {
     padding: 5px 0;
     font-size: .875rem;
+  }
+
+  .blogcat_title {
+    font-size: 1.25rem;
   }
 
   .singlePage_wrap {
