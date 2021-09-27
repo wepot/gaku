@@ -57,6 +57,11 @@ function my_css_attributes_filter($var) {
 }
 
 /*----------------------------------*
+* 固定ページ用抜粋欄
+*----------------------------------*/
+add_post_type_support( 'page', 'excerpt' );
+
+/*----------------------------------*
 * アイキャッチ画像サイズ
 *----------------------------------*/
 add_theme_support( 'post-thumbnails' ); // アイキャッチ画像を有効化
@@ -96,7 +101,7 @@ function bcn_add($bcnObj) {
 add_action('bcn_after_fill', 'bcn_add');
 
 /*----------------------------------*
-* カテゴリー表示削除
+* URL「/category/」表示削除
 *----------------------------------*/
 function rem_cat_function($link) {
 return str_replace("/category/", "/", $link);

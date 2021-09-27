@@ -1,36 +1,163 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="<?php language_attributes(); ?>">
 
-  <head>
-    <meta charset="UTF-8">
+  <head prefix=”og: http://ogp.me/ns#”>
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAKU｜船橋市の隠れ家的レンタルスペース</title>
-    <meta name="description" content="" />
+
+<?php
+if( is_single() && !is_home() || is_singular() && !is_front_page()) {
+  //タイトル
+  if (is_singular('live')) { //カスタム投稿の記事ページ
+    $title = get_the_title() . ' | イベント情報';
+  } elseif (is_single()) { //記事ページ
+    $title = get_the_title() . ' | BLOG';
+  } else {
+    $title = get_the_title();
+  }
+
+  //ディスクリプション
+  if(!empty($post->post_excerpt)) {
+    $description = str_replace(array("\r\n", "\r", "\n", "&nbsp;"), '', strip_tags($post->post_excerpt));
+  } elseif(!empty($post->post_content)) {
+    $description = str_replace(array("\r\n", "\r", "\n", "&nbsp;"), '', strip_tags($post->post_content));
+    $description_count = mb_strlen($description, 'utf8');
+    if($description_count > 120) {
+      $description = mb_substr($description, 0, 120, 'utf8').'…';
+    }
+  } else {
+    $description = '';
+  }
+
+  //キーワード
+  if (has_tag()) {
+    $tags = get_the_tags();
+    $kwds = array();
+    $i = 0;
+    foreach($tags as $tag){
+      $kwds[] = $tag->name;
+      if($i === 4) {
+        break;
+      }
+      $i++;
+    }
+    $keywords = implode(',',$kwds);
+  }  else {
+    $keywords = '';
+  }
+  //ページタイプ
+  $page_type = 'article';
+  //ページURL
+  $page_url = get_the_permalink();
+  //OGP用画像
+  if(!empty(get_post_thumbnail_id())) {
+    $ogp_img_data = wp_get_attachment_image_src(get_post_thumbnail_id(),'full');
+    $ogp_img = $ogp_img_data[0];
+  }
+} else { //ループのページ(home・カテゴリー・タグなど)
+  //投稿・固定ページ以外の詳細な条件分岐
+  if(is_category() && !is_category('blog')) { //「ブログ」カテゴリのみ除外
+    $title = single_cat_title("", false).'の記事一覧';
+    if(!empty(category_description())) {
+      $description = strip_tags(category_description());
+    } else {
+      $description = 'カテゴリー『'.single_cat_title("", false).'』の記事一覧ページです。';
+    }
+  } elseif(is_tag()) {
+    $title = single_cat_title("", false).'の記事一覧';
+    if(!empty(tag_description())) {
+      $description = strip_tags(tag_description());
+    } else {
+      $description = 'タグ『'.single_cat_title("", false).'』の記事一覧ページです。';
+    }
+  } elseif(is_year()) {
+    $title = get_the_time("Y年").'の記事一覧';
+    $description = '『'.get_the_time("Y年").'』に投稿された記事の一覧ページです。';//指定したい場合は個別に入力
+  } elseif(is_month()) {
+    $title = get_the_time("Y年M").'の記事一覧';
+    $description = '『'.get_the_time("Y年M").'』に投稿された記事の一覧ページです。';//指定したい場合は個別に入力
+  } elseif(is_day()) {
+    $title = get_the_time("Y年m月d日").'の記事一覧';
+    $description = '『'.get_the_time("Y年m月d日").'』に投稿された記事の一覧ページです。';//指定したい場合は個別に入力
+  } elseif(is_post_type_archive('live')) { //カスタム投稿タイプのアーカイブ
+    $title = 'イベント情報';
+    $description = 'イベントに関する情報一覧ページです。';
+  } elseif(is_archive('')) { //投稿アーカイブ
+    $title = 'BLOG';
+    $description = 'ピアノサロン樂が投稿した記事の一覧ページです。';
+  } else {
+    $title = '';
+    $description = get_bloginfo( 'description' );
+  }
+
+  //キーワード
+  $allcats = get_categories();
+  if(!empty($allcats)) {
+    $kwds = array();
+    $i = 0;
+    foreach($allcats as $allcat) {
+      $kwds[] = $allcat->name;
+      if($i === 4) {
+        break;
+      }
+      $i++;
+    }
+    $keywords = implode( ',',$kwds );
+  } else {
+    $keywords = '';
+  }
+
+  //ページタイプ
+  $page_type = 'website';
+
+  //ページURL
+  $http = is_ssl() ? 'https'.'://' : 'http'.'://';
+  $page_url = $http.$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
+}
+
+//OGP用画像
+if(empty($ogp_img)) {
+  $ogp_img = get_template_directory_uri().'/common/img/ogp.jpg';//サイト全てに共通の画像へのパス
+}
+
+//タイトル
+if(!empty($title)) {
+  $output_title = $title.' | '.get_bloginfo('name');
+} else {
+  $title = get_bloginfo('name');
+  $output_title = get_bloginfo('name');
+}
+?>
+
+    <title><?php echo $output_title; ?></title>
+    <meta name="description" content="<?php echo $description; ?>" />
+    <meta name="keywords" content="<?php echo $keywords; ?>">
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
 
     <!-- OGP設定 -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="<?php echo $page_type; ?>" />
     <meta property="og:locale" content="ja_JP">
-    <meta property="og:title" content="GAKU" />
-    <meta property="og:url" content="http://gaku-piano.com/" />
-    <meta property="og:description" content="" />
-    <meta property="og:image" content="【※※サムネイル画像URL/ドメインを含めた絶対パス※※】" />
-    <meta property="og:site_name" content="Wepot" />
+    <meta property="og:title" content="<?php echo $title; ?>" />
+    <meta property="og:url" content="<?php echo $page_url; ?>" />
+    <meta property="og:description" content="<?php echo $description; ?>" />
+    <meta property="og:image" content="<?php echo $ogp_img; ?>" />
+    <meta property="og:site_name" content="<?php bloginfo( 'name' ); ?>" />
 
     <!-- twitter card設定 -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@【※※TwitterのID※※】">
+    <meta name="twitter:site" content="@doraantiquecafe">
 
     <!-- favicon／Web Clipアイコン設定 -->
     <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/common/img/icon/favicon.ico">
     <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/common/img/icon/apple-touch-icon.png" sizes="180x180">
 
-    <!-- webfonts -->
+    <!-- Web font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- jQuery -->
+
+    <!-- script -->
     <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js" integrity="sha384-xRa5B8rCDfdg0npZcxAh+RXswrbFk3g6dlHVeABeluN8EIwdyljz/LqJgc2R3KNA" crossorigin="anonymous" defer></script>
     <script src="<?php echo get_template_directory_uri(); ?>/common/js/jquery-3.6.0.min.js"></script>
 <?php wp_head(); ?>
