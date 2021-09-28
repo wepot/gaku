@@ -24,20 +24,21 @@ Template Name: お問い合わせ各種ページテンプレート
               <li>残金は当日精算となります。</li>
               <li>お問い合わせフォームをご利用の際は必要事項を記載の上送信ボタンを押してください。</li>
             </ul><!-- /.sec-inquiry02_list -->
-            <p class="sec-inquiry02_caption">※お申込者都合によるキャンセルの場合、予約金はご返金できません。</p>
+            <p class="sec-inquiry02_caption">※お申込者様の都合によるキャンセルの場合、予約金は返金できません。</p>
           </div><!-- /.sec-inquiry02_wrap -->
 <?php endif; ?>
 
 
           <section class="inquiryForm">
-            <header class="inqform_heading">
-            <?php if (is_page('contact')) : ?>
-            <?php elseif (is_page('confirm')) : ?>
-              <h2>※入力内容をご確認ください※</h2>
+            <?php if (is_page('confirm')) : ?>
+              <header class="inqform_heading">
+                <h2>※入力内容をご確認ください※</h2>
+              </header><!-- /.inqform_heading -->
             <?php elseif (is_page('thanks')) : ?>
-              <h2>送信完了</h2>
+              <header class="inqform_heading">
+                <h2>送信完了</h2>
+              </header><!-- /.inqform_heading -->
             <?php endif; ?>
-          </header><!-- /.inqform_heading -->
 
 <?php echo do_shortcode('[mwform_formkey key="167"]'); ?>
 
