@@ -22,5 +22,13 @@
       @include m.mq(sm) {
         margin-top: 30px;
       }
+
+      &_noEvent{
+        @include m.responsive(font-size, .875rem, 1rem, 48rem, 68.375rem);
+        font-weight: 500;
+        line-height: 2.5;
+        text-align: center;
+      }
   }
+
 }

@@ -176,6 +176,34 @@ function custom_post_type() {
 }
 
 /*----------------------------------*
+* イベント情報ページ表示数
+*----------------------------------*/
+add_action('pre_get_posts', 'custom_pre_get_posts');
+function custom_pre_get_posts($query) {
+  if (!is_admin() && $query->is_main_query() && is_post_type_archive('live')) {
+    $query->set('posts_per_page', '20');
+  }
+}
+
+/*----------------------------------*
+* リダイレクト回避処理
+*----------------------------------*/
+// add_filter('redirect_canonical','my_disable_redirect_canonical');
+// function my_disable_redirect_canonical( $redirect_url ) {
+//   if ( is_archive() ){
+//       $subject = $redirect_url;
+//       $pattern = '/\/page\//'; // URLに「/page/」があるかチェック
+//       preg_match($pattern, $subject, $matches);
+
+//       if ($matches){
+//       //リクエストURLに「/page/」があれば、リダイレクトしない。
+//       $redirect_url = false;
+//       return $redirect_url;
+//       }
+//   }
+// }
+
+/*----------------------------------*
 * 管理バー非表示
 *----------------------------------*/
 // add_filter( 'show_admin_bar', '__return_false' );

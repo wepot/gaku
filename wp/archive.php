@@ -36,7 +36,10 @@ if ( have_posts() ):
 endif;
 ?>
             </article><!-- /.blogCards -->
-<?php get_template_part( 'parts/pager' );?>
+<?php 
+set_query_var( 'paging_query', $wp_query ); 
+get_template_part( 'parts/pager' );
+?>
           </div><!-- /.section_inner -->
         </article><!-- /.blogPage -->
 
