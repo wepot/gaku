@@ -14,7 +14,7 @@
   &_inner{
     display: flex;
     flex-wrap: nowrap;
-    @include m.responsive(margin-top, 60px, 100px, 768px, 1094px);
+    @include m.responsive(margin-top, 40px, 60px, 768px, 1094px);
   }
 
   &_wrap{

@@ -1212,6 +1212,13 @@ SP版：メニューリスト
   margin-bottom: 30px;
 }
 
+.livePage-media_noEvent {
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 2.5;
+  text-align: center;
+}
+
 /*! ===================================
 BLOGページ
 ==================================== */
@@ -1255,7 +1262,7 @@ BLOGページ
 .singlePage_inner {
   display: flex;
   flex-wrap: nowrap;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .singlePage_wrap {
@@ -2354,6 +2361,10 @@ swiper
     font-size: calc(1rem + 0.0122699387 * (100vw - 48rem));
   }
 
+  .livePage-media_noEvent {
+    font-size: calc(0.875rem + 0.0061349693 * (100vw - 48rem));
+  }
+
   .blog-article p {
     font-size: calc(0.875rem + 0.0061349693 * (100vw - 48rem));
   }
@@ -2502,6 +2513,10 @@ swiper
 
   .price_detail {
     font-size: 1.25rem;
+  }
+
+  .livePage-media_noEvent {
+    font-size: 1rem;
   }
 
   .blog-article p {
@@ -2710,7 +2725,7 @@ swiper
   }
 
   .singlePage_inner {
-    margin-top: calc(60px + 0.1226993865 * (100vw - 768px));
+    margin-top: calc(40px + 0.0613496933 * (100vw - 768px));
   }
 
   .blog-article figure {
@@ -2879,7 +2894,7 @@ swiper
   }
 
   .singlePage_inner {
-    margin-top: 100px;
+    margin-top: 60px;
   }
 
   .blog-article figure {
