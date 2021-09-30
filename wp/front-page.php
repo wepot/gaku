@@ -47,18 +47,6 @@ setup_postdata($post);
 endforeach;
 wp_reset_postdata();
 ?>
-                <!-- <article class="top-news_item">
-                  <a href="">
-                    <p class="top-news_date"><time datetime="">MMMM.YY.DD</time></p>
-                    <p class="top-news_text">NEWSのテキストが入りますNEWSのテキストが入ります</p>
-                  </a>
-                </article>
-                <article class="top-news_item">
-                  <a href="">
-                    <p class="top-news_date"><time datetime="">MMMM.YY.DD</time></p>
-                    <p class="top-news_text">NEWSのテキストが入りますNEWSのテキストが入ります</p>
-                  </a>
-                </article> -->
               </div><!-- /.top-news_body -->
             </div><!-- /.top-news_wrap -->
           </article><!-- /.top-news -->
@@ -67,7 +55,7 @@ wp_reset_postdata();
             <div class="top-about_wrap">
               <div class="top-about_body">
                 <h3 class="top-about_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/top-about.svg" width="396" height="95" alt="アンティークで落ち着いた大人の空間"></h3>
-                <p class="top-about_text">船橋市の住宅街の中にたたずむ小規模ホール樂～ＧＡＫＵ。透明感のあるドイツのピアノ”SEILER ザイラー”が完備されており、ご利用いただくことができます。まるで軽井沢の別荘のようなオシャレで大人な雰囲気が楽しめる館内で音楽のコンサートを開いてみてはいかがですか？コンサートの他にも個展や勉強会などレンタルスペースとして様々な用途で使うことも可能です。見学することも可能ですのでまずはお気軽にご連絡ください。</p><!-- /.top-about_text -->
+                <p class="top-about_text">船橋市の住宅街の中にたたずむ小規模ホール樂～ＧＡＫＵ。透明感のあるドイツのピアノ”SEILER ザイラー”が完備されております。まるで軽井沢の別荘のようなオシャレで大人な雰囲気が楽しめる館内で音楽のコンサートを開いてみてはいかがですか？コンサートの他にも個展や勉強会などレンタルスペースとして様々な用途で使うことも可能です。見学することも可能ですのでまずはお気軽にご連絡ください。</p>
                 <div class="cta_btn01 top-about_btn">
                   <a href="<?php echo esc_url(home_url('')); ?>/about/" class="button02">GAKUについて</a>
                 </div>
@@ -83,7 +71,7 @@ wp_reset_postdata();
           <div class="top-blog_inner">
             <header class="section_heading">
               <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/blog.svg" width="257" height="101" alt="BLOG"></h2>
-            </header><!-- /.section_headding -->
+            </header><!-- /.section_heading -->
             <article class="blogCards top-blogCards">
 <?php
 $args = array(
@@ -112,7 +100,7 @@ wp_reset_postdata();
           <div class="top-live_inner">
             <header class="section_heading">
               <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/live.svg" width="257" height="101" alt="イベント情報"></h2>
-            </header><!-- /.section_headding -->
+            </header><!-- /.section_heading -->
             <article class="liveMedia top-liveMedia">
 <?php
 $args = array(
@@ -145,7 +133,7 @@ wp_reset_postdata();
         <section id="access" class="access">
           <header class="section_heading">
             <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/access.svg" width="257" height="101" alt="アクセス"></h2>
-          </header><!-- /.section_headding -->
+          </header><!-- /.section_heading -->
           <div class="google-map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.242053485935!2d140.0400534155516!3d35.72026513543709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60228075ab46583b%3A0x84b756438826a3c3!2z44CSMjc0LTA4MTUg5Y2D6JGJ55yM6Ii55qmL5biC6KW_57-S5b-X6YeO77yU5LiB55uu77yS4oiS77yR!5e0!3m2!1sja!2sjp!4v1631697047555!5m2!1sja!2sjp" width="1094" height="266" style="border:0;" allowfullscreen="" loading="lazy" class="google-map_iframe"></iframe>
             <p class="google-map_caption"><a href="https://goo.gl/maps/7u4EZmR7iL8hg31W6" target="_blank" rel="noopener noreferrer">Googleマップを開く ></a></p>

@@ -81,10 +81,10 @@ if( is_single() && !is_home() || is_singular() && !is_front_page()) {
     $description = '『'.get_the_time("Y年m月d日").'』に投稿された記事の一覧ページです。';//指定したい場合は個別に入力
   } elseif(is_post_type_archive('live')) { //カスタム投稿タイプのアーカイブ
     $title = 'イベント情報';
-    $description = 'イベントに関する情報一覧ページです。';
+    $description = '船橋のピアノサロン樂〜GAKUのコンサート・イベント情報はこちら。チケットのご予約はお問い合わせください。皆様にお楽しみいただけるようお待ちしております。';
   } elseif(is_archive('')) { //投稿アーカイブ
     $title = 'BLOG';
-    $description = 'ピアノサロン樂が投稿した記事の一覧ページです。';
+    $description = '船橋のピアノサロン樂〜GAKUのブログページです。サロンに関する樂ブログ、イベント記録、店主ドラ猫の徒然日記など更新中です。';
   } else {
     $title = '';
     $description = get_bloginfo( 'description' );
@@ -117,7 +117,7 @@ if( is_single() && !is_home() || is_singular() && !is_front_page()) {
 
 //OGP用画像
 if(empty($ogp_img)) {
-  $ogp_img = get_template_directory_uri().'/common/img/ogp.jpg';//サイト全てに共通の画像へのパス
+  $ogp_img = get_template_directory_uri().'/common/img/icon/ogp.png';
 }
 
 //タイトル

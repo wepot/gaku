@@ -1,6 +1,6 @@
 <?php get_header(); ?>
-
       <main class="main-contents">
+<?php get_template_part( 'parts/breadcrumb' );?>
         <section class="notFound">
           <header class="section_heading">
             <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/404.svg" alt="" width="257" height="101"></h2>
