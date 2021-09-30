@@ -26,8 +26,13 @@ if($img_field){
                     <img src="<?php echo esc_url($img_field['url']) ?>" alt="" width="600" height="337">
                   </figure>
 <?php } ?>
-                  <p class="liveDetail_date">日時：<?php $date = get_field('event_date'); if( $date ){ echo $date; }?></p>
-                  <p class="liveDetail_starting">開始時間：<?php $start = get_field('start_time'); if( $start ){ echo $start; }?> － <?php $end = get_field('end_time'); if( $end ){ echo $end; }?></p>
+                  <p class="liveDetail_date">開催日：<?php $date = get_field('event_date'); if( $date ){ echo $date; }?></p>
+<?php if(get_field('start_time')): ?>
+                  <p class="liveDetail_time">開始時間：<?php the_field('start_time'); ?></p>
+<?php endif; ?>
+<?php if(get_field('end_time')): ?>
+                  <p class="liveDetail_time">終了時間：<?php the_field('end_time'); ?></p>
+<?php endif; ?>
                   <p class="liveDetail_text"><?php $detail = get_field('event_detail'); if( $detail ){ echo $detail; }?></p>
                 </div><!-- /.liveDetail -->
                 <div class="blog-meta">

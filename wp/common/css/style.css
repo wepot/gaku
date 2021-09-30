@@ -1387,8 +1387,12 @@ BLOGページ
   margin-bottom: 10px;
 }
 
-.liveDetail p.liveDetail_starting {
-  margin-bottom: 40px;
+.liveDetail p.liveDetail_time {
+  margin-bottom: 0;
+}
+
+.liveDetail p.liveDetail_text {
+  margin-top: 40px;
 }
 
 .blogBox {
