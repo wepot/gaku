@@ -55,7 +55,7 @@ wp_reset_postdata();
             <div class="top-about_wrap">
               <div class="top-about_body">
                 <h3 class="top-about_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/top-about.svg" width="396" height="95" alt="アンティークで落ち着いた大人の空間"></h3>
-                <p class="top-about_text">船橋市の住宅街の中にたたずむ小規模ホール樂～ＧＡＫＵ。透明感のあるドイツのピアノ”SEILER ザイラー”が完備されております。まるで軽井沢の別荘のようなオシャレで大人な雰囲気が楽しめる館内で音楽のコンサートを開いてみてはいかがですか？コンサートの他にも個展や勉強会などレンタルスペースとして様々な用途で使うことも可能です。見学することも可能ですのでまずはお気軽にご連絡ください。</p>
+                <p class="top-about_text">船橋市の住宅街の中にたたずむ小規模ホール樂～ＧＡＫＵ。透明感のあるドイツのピアノ”SEILER ザイラー”が完備されております。<br>まるで軽井沢の別荘のようなオシャレで大人な雰囲気が楽しめる館内で音楽のコンサートを開いてみてはいかがですか？コンサートの他にも個展や勉強会などレンタルスペースとして様々な用途で使うことも可能です。見学することも可能ですのでまずはお気軽にご連絡ください。</p>
                 <div class="cta_btn01 top-about_btn">
                   <a href="<?php echo esc_url(home_url('')); ?>/about/" class="button02">GAKUについて</a>
                 </div>
