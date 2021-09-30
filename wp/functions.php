@@ -72,53 +72,6 @@ add_image_size( 'imgBlog', 330, 186, false );
 add_image_size( 'imgLive', 260, 146, true );
 
 /*----------------------------------*
-* 投稿アーカイブページの作成
-*----------------------------------*/
-function post_has_archive( $args, $post_type ) {
-	if ( 'post' == $post_type ) {
-		$args['rewrite'] = true;
-		$args['has_archive'] = 'blog'; //任意のスラッグ名
-	}
-	return $args;
-}
-add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
-
-/*----------------------------------*
-* パンくずリストの末尾に階層追加
-*----------------------------------*/
-function bcn_add($bcnObj) {
-	// デフォルト投稿のアーカイブかどうか
-	if (is_post_type_archive('post')) {
-    // 新規のtrailオブジェクトを末尾に追加する
-		$bcnObj->add(new bcn_breadcrumb('BLOG', null, array('archive', 'post-clumn-archive', 'current-item')));
-		// trailオブジェクト0とtrailオブジェクト1の中身を入れ替える
-		$trail_tmp = clone $bcnObj->trail[1];
-		$bcnObj->trail[1] = clone $bcnObj->trail[0];
-		$bcnObj->trail[0] = $trail_tmp;
-	}
-	return $bcnObj;
-}
-add_action('bcn_after_fill', 'bcn_add');
-
-/*----------------------------------*
-* URL「/category/」表示削除
-*----------------------------------*/
-function rem_cat_function($link) {
-return str_replace("/category/", "/", $link);
-}
-add_filter('user_trailingslashit', 'rem_cat_function');
-function rem_cat_flush_rules() {
-global $wp_rewrite;
-$wp_rewrite->flush_rules();
-}
-add_action('init', 'rem_cat_flush_rules');
-function rem_cat_rewrite($wp_rewrite) {
-$new_rules = array('(.+)/page/(.+)/?' => 'index.php?category_name='.$wp_rewrite->preg_index(1).'&paged='.$wp_rewrite->preg_index(2));
-$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
-}
-add_filter('generate_rewrite_rules', 'rem_cat_rewrite');
-
-/*----------------------------------*
 * 抜粋文 文字数・末尾変更
 *----------------------------------*/
 function custom_excerpt_length() {
@@ -131,20 +84,18 @@ function custom_excerpt_more() {
 }
 add_filter('excerpt_more', 'custom_excerpt_more');
 
-
 /*----------------------------------*
 * サイドバーにウィジェット追加
 *----------------------------------*/
-function widgetarea_init()
-{
-    register_sidebar(array(
-        'name' => 'サイドバー',
-        'id' => 'side-widget',
-        'before_widget' => '<div class="sideMenu_wrap"><div class="sideMenu_list">',
-        'after_widget' => '</div></div>',
-        'before_title' => '<h3 class="sideMenu_title">',
-        'after_title' => '</h3>'
-    ));
+function widgetarea_init() {
+  register_sidebar(array(
+      'name' => 'サイドバー',
+      'id' => 'side-widget',
+      'before_widget' => '<div class="sideMenu_wrap"><div class="sideMenu_list">',
+      'after_widget' => '</div></div>',
+      'before_title' => '<h3 class="sideMenu_title">',
+      'after_title' => '</h3>'
+  ));
 }
 add_action('widgets_init', 'widgetarea_init');
 
@@ -171,37 +122,9 @@ function custom_post_type() {
       'supports' => array('title','editor','thumbnail','custom-fields','excerpt','revisions') // サポート指定
       // 全てのサポートを使う場合は下記参照
       //'supports' => array('title','editor','thumbnail','custom-fields','excerpt','author','trackbacks','comments','revisions','page-attributes')
-    )
-  );
+  ));
 }
 
-/*----------------------------------*
-* イベント情報ページ表示数
-*----------------------------------*/
-add_action('pre_get_posts', 'custom_pre_get_posts');
-function custom_pre_get_posts($query) {
-  if (!is_admin() && $query->is_main_query() && is_post_type_archive('live')) {
-    $query->set('posts_per_page', '20');
-  }
-}
-
-/*----------------------------------*
-* リダイレクト回避処理
-*----------------------------------*/
-// add_filter('redirect_canonical','my_disable_redirect_canonical');
-// function my_disable_redirect_canonical( $redirect_url ) {
-//   if ( is_archive() ){
-//       $subject = $redirect_url;
-//       $pattern = '/\/page\//'; // URLに「/page/」があるかチェック
-//       preg_match($pattern, $subject, $matches);
-
-//       if ($matches){
-//       //リクエストURLに「/page/」があれば、リダイレクトしない。
-//       $redirect_url = false;
-//       return $redirect_url;
-//       }
-//   }
-// }
 
 /*----------------------------------*
 * 管理バー非表示
