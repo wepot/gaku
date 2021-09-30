@@ -27,29 +27,7 @@
             <ul class="class">
               <li class="class_item">
                 <figure class="class_img">
-                  <img src="<?php echo get_template_directory_uri(); ?>/common/img/userGuide/userGuide-img01.jpg" width="360" height="195" alt="">
-                </figure><!-- /.class_img -->
-                <div class="class_body">
-                  <h3 class="class_title">カンツォーネを歌おう♬</h3>
-                  <p class="class_price">¥1,500</p>
-                  <p class="class_text">日時：毎月第2・第4水曜日&ensp;15：00～16：30<br>講師：真幸&emsp;操（ソプラノ歌手）<br>テキスト代：月・200円</p>
-                  <p class="class_detail"><span class="class-arrow">内容</span>みんなでカンツォーネを歌う会です。</p>
-                </div><!-- /.class_body -->
-              </li>
-              <li class="class_item">
-                <figure class="class_img">
-                  <img src="<?php echo get_template_directory_uri(); ?>/common/img/userGuide/userGuide-img02.jpg" width="360" height="195" alt="">
-                </figure><!-- /.class_img -->
-                <div class="class_body">
-                  <h3 class="class_title">ヴォイストレーニング教室</h3>
-                  <p class="class_price mb20">個人レッスン 30分<br>¥3,750</p>
-                  <p class="class_text">日時：毎月第1・第3火曜日&ensp;13：00～18：00<br>講師：真幸&emsp;操（ソプラノ歌手）</p>
-                  <p class="class_detail"><span class="class-arrow">内容</span>発声練習・歌唱・朗読</p>
-                </div><!-- /.class_body -->
-              </li>
-              <li class="class_item">
-                <figure class="class_img">
-                  <img src="<?php echo get_template_directory_uri(); ?>/common/img/userGuide/userGuide-img03.jpg" width="360" height="195" alt="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/common/img/userGuide/userGuide-img01.jpg" width="360" height="256" alt="">
                 </figure><!-- /.class_img -->
                 <div class="class_body">
                   <h3 class="class_title">ピアノレッスン</h3>
@@ -60,13 +38,35 @@
               </li>
               <li class="class_item">
                 <figure class="class_img">
-                  <img src="<?php echo get_template_directory_uri(); ?>/common/img/userGuide/userGuide-img04.jpg" width="360" height="195" alt="">
+                  <img src="<?php echo get_template_directory_uri(); ?>/common/img/userGuide/userGuide-img02.jpg" width="360" height="256" alt="">
                 </figure><!-- /.class_img -->
                 <div class="class_body">
                   <h3 class="class_title">ソルフェージュ</h3>
                   <p class="class_price">30分&emsp;¥1,000</p>
                   <p class="class_text">日時：要相談<br>講師：服部&emsp;めぐみ</p>
                   <p class="class_detail"><span class="class-arrow">内容</span>ピアノレッスンの補助や<br>受験コースまで指導いたします。</p>
+                </div><!-- /.class_body -->
+              </li>
+              <li class="class_item">
+                <figure class="class_img">
+                  <img src="<?php echo get_template_directory_uri(); ?>/common/img/userGuide/userGuide-img03.jpg" width="360" height="256" alt="">
+                </figure><!-- /.class_img -->
+                <div class="class_body">
+                  <h3 class="class_title">カンツォーネを歌おう♬</h3>
+                  <p class="class_price">¥1,500</p>
+                  <p class="class_text">日時：毎月第2・第4水曜日&ensp;15：00～16：30<br>講師：真幸&emsp;操（ソプラノ歌手）<br>テキスト代：月・200円</p>
+                  <p class="class_detail"><span class="class-arrow">内容</span>みんなでカンツォーネを歌う会です。</p>
+                </div><!-- /.class_body -->
+              </li>
+              <li class="class_item">
+                <figure class="class_img">
+                  <img src="<?php echo get_template_directory_uri(); ?>/common/img/userGuide/userGuide-img04.jpg" width="360" height="256" alt="">
+                </figure><!-- /.class_img -->
+                <div class="class_body">
+                  <h3 class="class_title">ヴォイストレーニング教室</h3>
+                  <p class="class_price mb20">個人レッスン 30分<br>¥3,750</p>
+                  <p class="class_text">日時：毎月第1・第3火曜日&ensp;13：00～18：00<br>講師：真幸&emsp;操（ソプラノ歌手）</p>
+                  <p class="class_detail"><span class="class-arrow">内容</span>発声練習・歌唱・朗読</p>
                 </div><!-- /.class_body -->
               </li>
             </ul>

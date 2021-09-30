@@ -5,7 +5,7 @@
         <section class="singlePage">
           <header class="section_heading">
             <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/live.svg" width="257" height="101" alt="イベント情報"></h2>
-          </header><!-- /.section_headding -->
+          </header><!-- /.section_heading -->
           <div class="singlePage_inner">
 <?php
 if( have_posts() ):
@@ -18,7 +18,7 @@ if( have_posts() ):
                 </header><!-- /.blog_header -->
                 <div class="liveDetail">
 <?php
-// カスタムフィールドの値を取得
+// 画像の値を取得
 $img_field = get_field('main_image');
 if($img_field){ 
 ?>
@@ -27,7 +27,7 @@ if($img_field){
                   </figure>
 <?php } ?>
                   <p class="liveDetail_date">日時：<?php $date = get_field('event_date'); if( $date ){ echo $date; }?></p>
-                  <p class="liveDetail_starting">開演時間：<?php $start = get_field('start_time'); if( $start ){ echo $start; }?>～<?php $end = get_field('end_time'); if( $end ){ echo $end; }?></p>
+                  <p class="liveDetail_starting">開始時間：<?php $start = get_field('start_time'); if( $start ){ echo $start; }?> － <?php $end = get_field('end_time'); if( $end ){ echo $end; }?></p>
                   <p class="liveDetail_text"><?php $detail = get_field('event_detail'); if( $detail ){ echo $detail; }?></p>
                 </div><!-- /.liveDetail -->
                 <div class="blog-meta">

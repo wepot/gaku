@@ -85,7 +85,7 @@
   @include m.responsive(margin-bottom, 40px, 80px, 768px, 1094px);
   padding: 0 20px;
     @include m.mq(sm) {
-      max-width: 350px;
+      max-width: 390px;
     }
 }
 
@@ -121,8 +121,9 @@
   &_img{
     width: 100%;
     max-width: 360px;
-    max-height: 195px;
+    max-height: 256px;
       img{
+        height: 100%;
         border-radius: 20px 20px 0 0;
       }
   }
