@@ -47,7 +47,6 @@
     width: 100%;
     max-width: 600px;
     height: auto;
-    max-height: 337px;
     @include m.responsive(margin-top, 30px, 50px, 768px, 1094px);
     @include m.responsive(margin-bottom, 40px, 60px, 768px, 1094px);
   }
@@ -159,8 +158,11 @@
   p.liveDetail_date{
     margin-bottom: 10px;
   }
-  p.liveDetail_starting{
-    margin-bottom: 40px;
+  p.liveDetail_time{
+    margin-bottom: 0;
+  }
+  p.liveDetail_text{
+    margin-top: 40px;
   }
 }
 

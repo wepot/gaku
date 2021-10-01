@@ -4,6 +4,9 @@
 
 /*! ====== お問い合わせフォームボタン ====== */
 .submit_button{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   display: block;
   width: 100%;
   padding: 6px;
@@ -21,4 +24,5 @@
     &:hover{
       background-color: s.$white;
     }
+    
 }

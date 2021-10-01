@@ -9,7 +9,7 @@
               <h1 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/about01.svg" width="257" height="101" alt="GAKUについて"></h1>
             </header><!-- /.section_heading -->
             <h3 class="sec-about01_catch"><img src="<?php echo get_template_directory_uri(); ?>/common/img/about/about-img01.svg" width="370" height="123" alt="隠れ家的な落ち着いた雰囲気の中透明感のある音を奏でるドイツのピアノ[SEILER ザイラー]を弾いてみませんか？"></h3>
-            <p class="sec-about01_text">透明感のある音を奏でるドイツのピアノ、SEILER ザイラーを弾いて見ませんか？“樂～ＧＡＫＵ”は隠れ家的な落ち着いたおもむきのある小規模ホールです。音楽のコンサートやリハーサルはもちろん、個展・勉強会・発表会などにもご利用いただけます。北習志野の静かな住宅街の中で緑に囲まれた室内の当サロンでは、喧騒とは無縁の世界で優雅な時間を過ごすことができます。</p>
+            <p class="sec-about01_text">透明感のある音を奏でるドイツのピアノ、SEILER ザイラーを弾いてみませんか？“樂～ＧＡＫＵ”は隠れ家的な落ち着いたおもむきのある小規模ホールです。音楽のコンサートやリハーサルはもちろん、個展・勉強会・発表会などにもご利用いただけます。北習志野の静かな住宅街の中で緑に囲まれた室内の当サロンでは、喧騒とは無縁の世界で優雅な時間を過ごすことができます。</p>
           </div><!-- /.section_inner -->
         </section><!-- /.sec-about01 -->
 

@@ -85,6 +85,35 @@ function custom_excerpt_more() {
 add_filter('excerpt_more', 'custom_excerpt_more');
 
 /*----------------------------------*
+* 投稿アーカイブページ
+*----------------------------------*/
+function post_has_archive( $args, $post_type ) {
+	if ( 'post' == $post_type ) {
+		$args['rewrite'] = true;
+		$args['has_archive'] = 'blog'; //任意のスラッグ名
+	}
+	return $args;
+}
+add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
+
+/*----------------------------------*
+* パンくずリストの末尾に階層追加
+*----------------------------------*/
+function bcn_add($bcnObj) {
+	// デフォルト投稿のアーカイブかどうか
+	if (is_post_type_archive('post')) {
+    // 新規のtrailオブジェクトを末尾に追加する
+		$bcnObj->add(new bcn_breadcrumb('BLOG', null, array('archive', 'post-clumn-archive', 'current-item')));
+		// trailオブジェクト0とtrailオブジェクト1の中身を入れ替える
+		$trail_tmp = clone $bcnObj->trail[1];
+		$bcnObj->trail[1] = clone $bcnObj->trail[0];
+		$bcnObj->trail[0] = $trail_tmp;
+	}
+	return $bcnObj;
+}
+add_action('bcn_after_fill', 'bcn_add');
+
+/*----------------------------------*
 * サイドバーにウィジェット追加
 *----------------------------------*/
 function widgetarea_init() {

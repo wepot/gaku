@@ -800,9 +800,13 @@ SP版：メニューリスト
   width: 100%;
   max-width: 330px;
   max-height: 186px;
+  background-color: #f8f8f8;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
 }
 
 .blogCard_img img {
+  width: 100%;
   border-radius: 10px 10px 0 0;
 }
 
@@ -1290,7 +1294,6 @@ BLOGページ
   width: 100%;
   max-width: 600px;
   height: auto;
-  max-height: 337px;
   margin-top: 30px;
   margin-bottom: 40px;
 }
@@ -1544,6 +1547,13 @@ BLOGページ
 
 .top-liveMedia_btn {
   margin: 0 auto 60px;
+}
+
+.top-liveMedia_noEvent {
+  font-size: .875rem;
+  font-weight: 500;
+  line-height: 2.5;
+  text-align: center;
 }
 
 /*! ====== googleカレンダー ====== */
@@ -2388,6 +2398,10 @@ swiper
     font-size: calc(0.875rem + 0.0061349693 * (100vw - 48rem));
   }
 
+  .top-liveMedia_noEvent {
+    font-size: calc(0.875rem + 0.0061349693 * (100vw - 48rem));
+  }
+
   .sec-about01_text {
     font-size: calc(0.9375rem + 0.0030674847 * (100vw - 48rem));
   }
@@ -2539,6 +2553,10 @@ swiper
   }
 
   .top-about_text {
+    font-size: 1rem;
+  }
+
+  .top-liveMedia_noEvent {
     font-size: 1rem;
   }
 

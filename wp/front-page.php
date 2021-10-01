@@ -115,11 +115,11 @@ if ( $live_query->have_posts() ) :
 
 <?php get_template_part( 'parts/content-archiveLive' );?>
 
-<?php
-  endwhile;
-endif;
-wp_reset_postdata();
-?>
+<?php endwhile; ?>
+<?php else: ?>
+          <p class="top-liveMedia_noEvent">現在、イベントに関するお知らせはありません。</p>
+<?php endif; ?>
+<?php wp_reset_postdata();?>
             </article><!-- /.liveMedia -->
             <div class="cta_btn02 top-liveMedia_btn">
               <a href="<?php echo esc_url(home_url('')); ?>/live/" class="button01">イベント情報一覧</a>
@@ -135,8 +135,8 @@ wp_reset_postdata();
             <h2 class="section_title"><img src="<?php echo get_template_directory_uri(); ?>/common/img/title/access.svg" width="257" height="101" alt="アクセス"></h2>
           </header><!-- /.section_heading -->
           <div class="google-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.242053485935!2d140.0400534155516!3d35.72026513543709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60228075ab46583b%3A0x84b756438826a3c3!2z44CSMjc0LTA4MTUg5Y2D6JGJ55yM6Ii55qmL5biC6KW_57-S5b-X6YeO77yU5LiB55uu77yS4oiS77yR!5e0!3m2!1sja!2sjp!4v1631697047555!5m2!1sja!2sjp" width="1094" height="266" style="border:0;" allowfullscreen="" loading="lazy" class="google-map_iframe"></iframe>
-            <p class="google-map_caption"><a href="https://goo.gl/maps/7u4EZmR7iL8hg31W6" target="_blank" rel="noopener noreferrer">Googleマップを開く ></a></p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.2396204861743!2d140.03992941526!3d35.7203249801852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60228075ab47d11f%3A0x94574f440a0e65dc!2z44Kz44Oz44K144O844OI44O744OU44Ki44OO44K144Ot44OzIOaogu-9nkdBS1U!5e0!3m2!1sja!2sjp!4v1633065044458!5m2!1sja!2sjp" width="1094" height="266" style="border:0;" allowfullscreen="" loading="lazy"  class="google-map_iframe"></iframe>
+            <p class="google-map_caption"><a href="https://goo.gl/maps/N7finzvMxiNA5Cui9" target="_blank" rel="noopener noreferrer">Googleマップを開く ></a></p>
           </div><!-- /.googlemap -->
           <div class="access_inner">
             <p class="access-logo">
